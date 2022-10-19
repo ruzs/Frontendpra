@@ -8,23 +8,35 @@
     <title>Document</title>
     <style>
         *{
-            box-sizing: bordFer-box;
+            box-sizing: border-box;
             overflow: hidden;
         }
         .container{
+            /* width: 80%; */
             width: 960px;
-            height: 720px;
-            border: 5px double #ccc;
+            /* height: 720px; */
+            
+            border: 5px double lightskyblue;
             margin: 0 auto;
             text-align: center;
         }
         ul{
             width: 600px;
             padding: 15px;
+            border-top: 2px solid black;
+            border-bottom: 1px solid black;
+            margin: 20px auto;
         }
         li{
-            display: inline;
+            display: inline-block;
             text-transform: uppercase;
+            margin-right: 30px;
+        }
+        li>a{
+            text-decoration: none;
+        }
+        li>a:hover{
+            font-size: x-large;
         }
     </style>
 </head>
@@ -34,11 +46,11 @@
         <header>
             <img src="./images/logo.gif" alt="">
             <ul>
-                <li>Home</li>
-                <li>For Sale</li>
-                <li>Repairs</li>
-                <li>About</li>
-                <li>Contact</li>
+                <li><a href="">Home</a></li>
+                <li><a href="">For Sale</a></li>
+                <li><a href="">Repairs</a></li>
+                <li><a href="">About</a></li>
+                <li><a href="">Contact</a></li>
             </ul>
         </header>
         <content>
