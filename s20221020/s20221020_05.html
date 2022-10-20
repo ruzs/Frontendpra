@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-
         /* flexbox */
         /* 3box row*/
 
@@ -26,31 +25,35 @@
         h1 {
             color: red;
         }
-        
+
         p {
             font-size: 24px;
             color: red;
         }
 
-        .container{
+        .container {
             display: flex;
             width: 400px;
             /* height: 1000px; */
             flex-wrap: wrap;
-            background: #ccc;   
+            background: #ccc;
             justify-content: space-around;
             align-items: center;
             margin: 0 auto;
             padding: 50px 10px;
         }
-        .item{
+
+        .item {
             flex-basis: 300px;
             height: 300px;
             background-color: lightblue;
-            
+            margin-bottom: 30px;
+
         }
 
         @media only screen and (min-width: 600px) {
+
+            /* table */
             h1 {
                 color: green;
             }
@@ -59,24 +62,43 @@
                 font-size: 16px;
                 color: green;
             }
+
+            .container {
+                display: flex;
+                width: 700px;
+                height: 500px;
+                background: #ccc;
+                justify-content: left;
+                /* justify-content: space-around; */
+                align-items: center;
+            }
+
+            .item{
+                margin-right: 10px;
+            }
+            
         }
 
         @media only screen and (min-width: 768px) {
+
+            /* desktop */
             h1 {
                 color: blue;
             }
+
             p {
                 font-size: 12px;
                 color: blue;
             }
-            .container{
-            display: flex;
-            width: 1000px;
-            height: 500px;
-            background: #ccc;   
-            justify-content: space-around;
-            align-items: center;
-        }
+
+            .container {
+                display: flex;
+                width: 1000px;
+                height: 500px;
+                background: #ccc;
+                justify-content: space-around;
+                align-items: center;
+            }
         }
     </style>
 </head>
