@@ -11,22 +11,34 @@
             width: 300px;
             height: 300px;
             background-color: lightblue;
-            /* transition-duration: 2s;
-            transition-timing-function: ease-in-out; */
-            /* transition-delay: 2s; */
-            /* 變化時間 屬性 變化方法 延遲時間 */
-            transition: 1s width ease-in-out 0.5s;
+            
+
+            
         }
+        /* 變透明還會在畫面上 */
+        @keyframes goAni {
+            0%{ opacity: 1;}
+            50%{ opacity: 0;}
+            100%{ opacity: 1;}
+        }
+        /* @keyframes goAni {
+            from{ opacity: 0;}
+            to{ opacity: 1;}
+        } */
         
+        /* 如果要讓元件真的消失 display none */
         .box:hover {
-            width: 600px;
-            background-color: lightpink;
+            /* display: none; */
+            animation-name: goAni;
+            animation-duration: 5s;
         }
     </style>
 </head>
 
 <body>
+    <p>Lorem ipsum dolor sit amet.</p>
     <div class="box"></div>
+    <p>Lorem ipsum dolor sit amet.</p>
 </body>
 
 </html>
