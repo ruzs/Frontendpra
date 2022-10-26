@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,7 +8,7 @@
     <title>Document</title>
     <style>
         /* 練習 hover 放大 1 -> 1.2 */
-        .box{
+        .box {
             width: 300px;
             height: 300px;
             background-color: lightblue;
@@ -19,22 +20,23 @@
 
             /* width: 500px; */
             /* transform: ; */
-            transform: 
-                translate(50px , 300px)
-                ;
+            transform:
+                translate(50px, 300px);
         }
 
-        .box:hover{
+        .box:hover {
             background-color: lightpink;
             transform: 
-                translate(50px , 300px)
-                scale(1.5 , 1.5);
-                transition-duration: 1s
-                ;
+                rotate(-30deg)
+                translate(50px, 300px)
+                scale(1.5, 1.5);
+            transition-duration:(1s);
         }
     </style>
 </head>
+
 <body>
     <div class="box"></div>
 </body>
+
 </html>
