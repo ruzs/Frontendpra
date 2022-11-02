@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/css/bootstrap.min.css"
+        integrity="sha512-CpIKUSyh9QX2+zSdfGP+eWLx23C8Dj9/XmHjZY2uDtfkdLGo0uY12jgcnkX9vXOgYajEKb/jiw67EYm+kBf+6g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            /* overflow: hidden; */
+        }
+
+        /* vh 80% 高度 */
+        .my-icon {
+            height: 70vh;
+            /* height: 70%; */
+        }
+        
+    </style>
+
+</head>
+
+<body>
+    <!-- header -->
+    <div class="container-fluid">
+        <div class="p-5 bg-primary text-white">
+            <h1>Hello Jumbotron Example</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat..</p>
+        </div>
+    </div>
+
+    <div class="container-fluid mt-3">
+        <div class="row">
+            <div class="col-8">
+                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="https://picsum.photos/id/1002/960/200" class="d-block w-100" alt="..." style="height:500px;">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="https://picsum.photos/id/1002/960/200" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="https://picsum.photos/id/1002/960/200" class="d-block w-100" alt="...">
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+            </div>
+            <div class="col-4">
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container mt-5">
+        <div class="row text-center text-primary">
+            <div class="col-sm-6 border my-icon">
+                <i class="fa-regular fa-heart"></i>&nbsp;&nbsp;icon1
+                <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente beatae numquam unde sint,
+                    delectus quis, suscipit obcaecati mollitia ab inventore maiores, hic esse temporibus! Eos
+                    officia ea
+                    fugit libero mollitia.
+                </p>
+            </div>
+            <div class="col-sm-6 border my-icon">
+                <i class="fa-regular fa-heart"></i>&nbsp;&nbsp;icon2
+                <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente beatae numquam unde sint,
+                    delectus quis, suscipit obcaecati mollitia ab inventore maiores, hic esse temporibus! Eos
+                    officia ea
+                    fugit libero mollitia.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-8">
+                <div class="row text-center text-primary">
+                    <!-- img-fluid 圖片可以rwd  -->
+                    <!-- max-wdith 100%  -->
+                    <div class="col-sm-4 border">
+                        <h3>pic1</h3>
+                        <img src="https://picsum.photos/id/1002/500/500" alt="" class="img-fluid">
+                    </div>
+                    <div class="col-sm-4 border">
+                        <h3>pic1</h3>
+                        <img src="https://picsum.photos/id/1003/300/300" alt="" class="img-fluid rounded-circle">
+                    </div>
+                    <div class="col-sm-4 border">
+                        <h3>pic1</h3>
+                        <img src="https://picsum.photos/id/1004/300/300" alt="" class="img-thumbnail">
+                    </div>
+        
+                </div>
+            </div>
+            <div class="col-4">
+
+            </div>
+        </div>
+    </div>
+    <div class="container mt-5">
+        <div class="row text-center text-primary">
+            <div class="col-sm-8 ">
+                <iframe width="500px" height="400px" src="https://www.youtube.com/embed/4aM5QV0onqU"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+            <div class="col-sm-4 p-5">
+                <h3>my youtube ...</h3>
+                <p class="mt-3">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem enim maiores sapiente iste
+                    delectus
+                    at
+                    facilis vel, suscipit dicta eveniet, dolor sint omnis nam excepturi labore sed accusamus nulla
+                    obcaecati!
+                </p>
+
+            </div>
+        </div>
+    </div>
+    <div class="container mt-5">
+        <div class="row text-center text-primary">
+            <div class="col-sm-8">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14458.818123471638!2d121.41071954598142!3d25.044099394736573!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a7bec9ad74b1%3A0xa639904a89f26435!2z5Yue5YuV6YOo5Yue5YuV5Yqb55m85bGV572y5YyX5Z-65a6c6Iqx6YeR6aas5YiG572y5rOw5bGx6IG35qWt6KiT57e05aC0!5e0!3m2!1szh-TW!2stw!4v1667358093298!5m2!1szh-TW!2stw"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="col-sm-4 p-5">
+                <h3>my google map ...</h3>
+                <p class="mt-3">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem enim maiores sapiente iste
+                    delectus
+                    at
+                    facilis vel, suscipit dicta eveniet, dolor sint omnis nam excepturi labore sed accusamus nulla
+                    obcaecati!
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
