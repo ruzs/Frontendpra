@@ -10,8 +10,34 @@
 </head>
 
 <body>
+    <!-- breadcrumb -->
     <div class="container text-end">
-        <a href="http://"> Home </a>  > <a href="">Modals & Alert</a> > <a href=""> Other</a>
+        <a href="http://"> Home </a> > <a href="">Modals & Alert</a> > <a href=""> Other</a>
+    </div>
+    <div class="container text-end">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">Home</li>
+            </ol>
+        </nav>
+
+        <!-- flex container + item -->
+        <!-- nav container + ol item -->
+        <!-- ol container + li item -->
+        <nav aria-label="breadcrumb" class=""> 
+            <ol class="breadcrumb " class="justify-content-end">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Library</li>
+            </ol>
+        </nav>
+
+        <nav class="justify-content-end" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Library</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Data</li>
+            </ol>
+        </nav>
     </div>
 
     <div class="container mt-3">
