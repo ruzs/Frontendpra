@@ -6,17 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        /* 三種看不見方法 */
+        /* 1.visibility hideen js
+           2.opacity 透明度
+           3.display none
+        */
         .box{
             width: 300px;
             height: 300px;
         }
         .item1{
             background-color: lightblue;
-            visibility: visible;
+            /* visibility: visible; */
+            opacity: 1;
         }
         .item1:hover{
             background-color: lightblue;
-            visibility: hidden;
+            opacity: 0.0;
+            /* visibility: hidden; */
         }
         .item2{
             /* display: none; */
