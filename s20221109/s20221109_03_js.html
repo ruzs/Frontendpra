@@ -18,17 +18,40 @@
     <button id="myBtn">myBtn</button>
     <form action="">
         <input type="text" name="" id="">
-        <button>no type button</button>
-        <button type="button">type button</button>
+        <button id="noTypeBtn">no type button</button>
+        <button id="typeBtn" type="button">type button</button>
         <button type="submit">button</button>
         <input type="submit" value="input submit">
     </form>
     <script>
-        alert('Hello JS');
+        // alert('Hello JS');
         document.getElementById('myText').style.color = "blue";
         document.getElementById('myBtn').addEventListener('click',function(){
-            alert('touch btn')
+            alert('touch btn')});
+        document.getElementById('typeBtn').addEventListener('click',function(){
+            document.getElementById('myText').style.color = "lightblue";
         });
+        var cab = 3;
+        function print() {
+            for(var i=0; i < cab ;i++){
+                document.write("<h1>try</h1><br>");
+                console.log("$123+");
+            }
+        }
+        document.write("<h1>try</h1><br>");
+
+        document.getElementById('noTypeBtn').addEventListener('click',function(){
+            print();
+            // document.write("<h1>try</h1><br>");
+        });
+
+        // print();
+        
+        // var a= document.createElement('div');
+        // a.appendChild(document.createTextNode("try"));
+        // for(var i=1;i<3;i++){
+        //     document.getElementById('myText').text="aa";
+        // }
     </script>
 </body>
 
