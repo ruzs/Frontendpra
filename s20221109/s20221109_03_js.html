@@ -1,26 +1,35 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
+    <style>
+        #myText {
+            color: #f00;
+        }
+    </style>
 </head>
+
 <body>
     <h1 id="myText">Hello JS</h1>
     <button id="myBtn">myBtn</button>
     <form action="">
-      <input type="text" name="" id="">
-      <button>no type button</button>
-      <button type="button">type button</button>
-      <button type="submit">button</button>
-      <input type="submit" value="input submit">
+        <input type="text" name="" id="">
+        <button>no type button</button>
+        <button type="button">type button</button>
+        <button type="submit">button</button>
+        <input type="submit" value="input submit">
     </form>
     <script>
-      alert('Hello JS');
-      document.getElementById('myText').style.color="blue";
+        alert('Hello JS');
+        document.getElementById('myText').style.color = "blue";
+        document.getElementById('myBtn').addEventListener('click',function(){
+            alert('touch btn')
+        });
     </script>
 </body>
+
 </html>
