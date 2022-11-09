@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,23 +6,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- style 都放在head -->
+    <style>
+
+    </style>
 </head>
 <body>
-    <h1>Hello JS</h1>
+    <h1 id="myText">Hello JS</h1>
     <button id="myBtn">myBtn</button>
-
-    <input type="text" name="" id="" value="55688">
-
-    <form action="">
-        <!-- 只有type button 不是submit -->
-        <input type="text" name="text" id="">
-        <button>no type button</button>
-        <button type="button">type button</button>
-        
-        <button type="submit">button</button>
-        <input type="button" value="input button">
-        <input type="submit" value="input submit">
-    </form>
+ 
     
+    <!-- 放在/body 結束body 上一行 -->
+    <script>
+        // 跳出彈跳視窗 alert
+        // alert('Hello JS');
+        // 我要買麥當勞('大麥克');
+
+        // h1 變紅色
+        document.getElementById('myText').style.color="blue";
+        
+    </script>
 </body>
 </html>
