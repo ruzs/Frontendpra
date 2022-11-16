@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <h3 id="myH3">text</h3>
+  <button type="button" onclick="myna();">myH3</button>
+  <h4 id="myH4">text</h4>
+  <button type="button" onclick="mynu();">myH4</button>
+    <script>
+      function myna(){
+        let myName = prompt('Name ?');
+        document.getElementById('myH3').innerText = myName;
+      }
+      function mynu() {
+        let myNum = prompt('Num ?');
+        document.getElementById('myH4').innerText = myNum;
+      }
+        // prompt1 text
+        // prompt2 number
+        // 前端 顯示出來 
+        // let myName = prompt('Name ?');
+        // console.log(myName);
+
+    </script>
+</body>
+</html>
