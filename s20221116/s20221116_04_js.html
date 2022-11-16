@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h3 id="myH3">程式語言</h3>
+  <h1 id="myH1"></h1>
+  <button type="button" onclick="myFun();">myFun</button>
+  <script>
+    function myFun(){
+      console.log("myFun OK");
+      document.getElementById("myH3").innerText="Javascript";
+    }
+    setInterval(myFun,5000)
+    var nowtime=0;
+    var second=0;
+    var min=0;
+    setInterval(
+    function(){
+    nowtime=nowtime+1;
+    if (nowtime==99) {
+      second=second+1;
+      nowtime=0;
+    }
+    if (second==59) {
+      min=min+1;
+      second=0;
+    }
+    document.getElementById("myH1").innerText= ("已經經過"+min+":"+second+":"+nowtime);
+    }
+    ,10);
+  </script>
+</body>
+</html>
