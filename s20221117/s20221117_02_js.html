@@ -22,16 +22,6 @@
 
     <button type="button" onclick="test();">testBtn</button>
     <script>
-        // 抓id
-        const mySpan1 = document.getElementById('mySpan1');
-        const mySpan2 = document.getElementById('mySpan2');
-        const mySum = document.getElementById('sum');
-
-        // num1 num2
-        let getNum1 = Number(prompt('num1?'));
-        let getNum2 = Number(prompt('num2?'));
-
-
         // function
         function greeting() {
             console.log('hello :))');
@@ -44,10 +34,23 @@
             return result;
         }
 
-        let a = 10;
-        let b = 200;
-        let resultSum = getSum(a, b);
+        // 抓id
+        const mySpan1 = document.getElementById('mySpan1');
+        const mySpan2 = document.getElementById('mySpan2');
+        const mySum = document.getElementById('sum');
+
+        // num1 num2
+        let getNum1 = Number(prompt('num1?'));
+        let getNum2 = Number(prompt('num2?'));
+
+        // run 主程式
+        let resultSum = getSum(getNum1, getNum2);
         console.log('resultSum', resultSum);
+
+        mySpan1.textContent = getNum1;
+        mySpan2.textContent = getNum2;
+        mySum.textContent = resultSum;
+
 
 
 
