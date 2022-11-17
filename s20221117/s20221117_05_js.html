@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .my-red{
+            color: red;
+        }
+        .my-blue{
+            color: blue;
+        }
+        .my-font{
+            font-size: 30px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h3>成績判斷系統</h3>
+    <p id="score" class="">0</p>
+    <p id="result" class="my-red"></p>
+    <!-- promt 輸入分數  -->
+    <!-- 顯示 你的成績 與得分 p -->
+    <script>
+        const scoreP = document.getElementById('score');
+        const resultP = document.getElementById('result');
+
+        let score = prompt('請輸入您的分數');
+        let result = "";
+        if (score > 80) {
+            // console.log('A');
+            result = "A";
+        } else if (score >= 60) {
+            // console.log('B');
+            result = "B";
+        }
+        else {
+            // console.log('你被當了');
+            result = "你被當了";
+            // resultP.style.color = "red";
+            resultP.setAttribute("class", "my-blue my-font");
+        }
+        scoreP.textContent = score;
+        resultP.textContent = result;
+        
+
+    </script>
+</body>
+
+</html>

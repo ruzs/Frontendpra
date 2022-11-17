@@ -5,28 +5,52 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    @keyframes example{
+      0%{color:#000;}
+      25%{color:lightgreen;}
+      50%{color:lightblue;}
+      75%{color: lightseagreen;}
+      100%{color:#000;}
+    }
+    @keyframes examples{
+      0%{color:#000;}
+      25%{color:lightsalmon;}
+      50%{color:lightcoral;}
+      75%{color: orange;}
+      100%{color:#000;}
+    }
+  </style>
 </head>
 <body>
-  <h3 id="myH3">程式語言</h3>
+  <h3 id="myH3"style="animation:examples 5s infinite">程式語言</h3>
   <h1 id="myH1"></h1>
   <button type="button" onclick="myFun();">myFun</button>
+  <button type="button" onclick="redo();">Redo</button>
   <script>
     function myFun(){
       console.log("myFun OK");
       document.getElementById("myH3").innerText="Javascript";
+      // document.getElementById("myH3").style="color:red; transition-duration:.5s;";
+      document.getElementById("myH3").style="animation:example 5s infinite";
     }
-    setInterval(myFun,5000)
+    function redo(){
+      console.log("Redo OK");
+      document.getElementById("myH3").innerText="程式語言";
+      // document.getElementById("myH3").style="color:#000; transition-duration:.5s;";
+      document.getElementById("myH3").style="animation:examples 5s infinite";
+    }
+    setInterval(myFun,10000)
     var nowtime=0;
     var second=0;
     var min=0;
-    setInterval(
-    function(){
+    setInterval(()=>{
     nowtime=nowtime+1;
-    if (nowtime==99) {
+    if (nowtime==99){
       second=second+1;
       nowtime=0;
     }
-    if (second==59) {
+    if (second==59){
       min=min+1;
       second=0;
     }

@@ -9,35 +9,124 @@
 </head>
 
 <body>
+
+    <h3>某某醫院</h3>
+    <h3><span id="hello">醫生資料</span></h3>
+    <p>目前人數:<span id="people">0</span></p>
+    <p>額滿:<span id="isFull">可以掛號</span></p>
+
     <script>
+        /**
+         * 說明 打招呼
+         * string name 姓名
+         * number age 年齡
+         * 
+        */
+        //php 字串相加 .
+        //js 字串相加 +
+
+        function sayHello(name, age) {
+            // php字串相加.            
+            // js 字串相加 +
+            myStr1 = "hello"+name+"hello"+name+name+age;
+
+            // php ""字串含有變數
+            // myStr2 = "hello $name";
+            // js `${變數}`
+            // myStr2 = `hello ${name} :)) age = ${age}`;
+            myStr2 = `hello ${name} :)) age = ${age}\n`;
+            
+            console.log(myStr1);
+            console.log('myStr2',myStr2);
+            helloP.textContent = myStr2;
+        }
+
+        const helloP = document.getElementById('hello');
+        
+        sayHello('kai',18);
+       
+        
+        
+
+        // document.write('12345');
         let x = 10;
         let y = 200;
         let result = 0;
 
-        console.log('init x',x);
-        console.log('init y',y);
-        console.log('init result',result);
+        console.log('init x', x);
+        console.log('init y', y);
+        console.log('init result', result);
 
         x = x + 1;
-        x += 1 ;
-        x += y ; // x = x + y
+        x += 1;
+        x += y; // x = x + y
 
-        console.log('x',x);
-        console.log('y',y);
-        console.log('result',result);
+        console.log('x', x);
+        console.log('y', y);
+        console.log('result', result);
 
         a = 100;
         b = 50;
-        console.log('init a',a);
-        console.log('init b',b);
+        console.log('init a', a);
+        console.log('init b', b);
         a += b;
         console.log('經過了a += b');
-        console.log('a',a);
-        console.log('b',b);
-        console.log('a+b',a+b);
-        console.log('a-b',a-b);
-        console.log('a*b',a*b);
-        console.log('a/b',a/b);
+        console.log('a', a);
+        console.log('b', b);
+        console.log('a+b', a + b);
+        console.log('a-b', a - b);
+        console.log('a*b', a * b);
+        console.log('a/b', a / b);
+        
+
+        //boolean
+        //flag
+        // 100掛號 爆滿了
+        // isFull = false
+        // 綠燈可以掛號
+        // 超過100人 不可以掛號
+
+        // 紅燈
+        // 綠燈
+        // 人數
+        
+        
+        function setStatus(addPeople) {
+            // addPeople = 200;
+            people = people + addPeople;
+            if (people > 100) {
+                isFull = true;
+            }
+            console.log('people', people);
+            console.log('isFull', isFull);
+            peopleP.textContent = people;
+            if (isFull) {
+                isFullP.textContent = '額滿了';
+                isFullP.style.color = 'red';
+            } else {
+                isFullP.textContent = '可以掛號';
+            }
+        }
+
+        const peopleP = document.getElementById('people');
+        const isFullP = document.getElementById('isFull');
+
+        let isFull = false;
+        let people = 0;
+        let addPeople = 0
+
+        console.log('init people', people);
+        console.log('init isFull', false);
+
+        // addPeople = 1
+        // people = people + addPeople ;
+        // isFull = false;
+
+        setStatus(99);
+        setStatus(1);
+        setStatus(1);
+        setStatus(1);
+        setStatus(1);
     </script>
 </body>
 
