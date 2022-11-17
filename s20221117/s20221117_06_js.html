@@ -1,8 +1,16 @@
-!
 <!DOCTYPE html>
+<style>
+    @keyframes example{
+      0%{color:#000;}
+      25%{color:lightgreen;}
+      50%{color:lightblue;}
+      75%{color: lightseagreen;}
+      100%{color:#000;}
+    }
+</style>
 <html>
 
-<body>
+<body style="animation:example 5s infinite">
 
     <h1>The Document Object</h1>
     <h2>The write() Method</h2>
@@ -17,7 +25,7 @@
 
     <script>
         function myFunction() {
-            document.write("Hello World");
+            document.write("<h1>Hello World</h1>");
         }
     </script>
 
