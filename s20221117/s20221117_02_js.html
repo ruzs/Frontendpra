@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <p>Num1 = <span id="mySpan1">0</span> </p>
+    </div>
+    <div>
+        <p>Num2 = <span id="mySpan2">0</span></p>
+    </div>
+    <hr>
+    <div>
+        <p>sum = <span id="sum">0</span></p>
+    </div>
+
+    <button type="button" onclick="test();">testBtn</button>
+    <script>
+        // 抓id
+        const mySpan1 = document.getElementById('mySpan1');
+        const mySpan2 = document.getElementById('mySpan2');
+        const mySum = document.getElementById('sum');
+
+        // num1 num2
+        let getNum1 = Number(prompt('num1?'));
+        let getNum2 = Number(prompt('num2?'));
+
+
+        // function
+        function greeting() {
+            console.log('hello :))');
+        }
+        greeting();
+
+        function getSum(aInput, b) {
+            let result = aInput + b;
+            console.log('getSum', result);
+            return result;
+        }
+
+        let a = 10;
+        let b = 200;
+        let resultSum = getSum(a, b);
+        console.log('resultSum', resultSum);
+
+
+
+    </script>
+</body>
+
+</html>

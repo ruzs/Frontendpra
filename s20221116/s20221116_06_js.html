@@ -21,8 +21,13 @@
     <!-- 常見離開畫面 -->
     <!-- exit -->
 
-    
-
+    <h1 id="myNum1">myNum1</h1>
+    <h1 id="myNum2">myNum2</h1>
+    <h1 id="myNum3">myNum1+2</h1>
+    <h1 id="getNum">getNum</h1>
+    <h1 id="getNum1">getNum1</h1>
+    <h1 id="getNum2">getNum2</h1>
+    <h1 id="getNum3">getNum1+2</h1>
     <script>
         // 常見變數狀態
         // string
@@ -36,15 +41,22 @@
         console.log('myNum1',myNum1);
         console.log('myNum1 typeof',typeof(myNum1));
         console.log('myNum2',myNum2);
+        document.getElementById('myNum1').innerText = myNum1;
+        document.getElementById('myNum2').innerText = myNum2;
         console.log('myNum2 typeof',typeof(myNum2));
         console.log(myNum1+myNum2);
+        document.getElementById('myNum3').innerText = myNum1+myNum2;
         let getNum = Number(prompt('Num ?'));
         let getNum1 = Number(prompt('Num1 ?'));
         let getNum2 = Number(prompt('Num2 ?'));
         console.log('getNum',getNum);
         console.log('getNum typeof',typeof(getNum));
+        document.getElementById('getNum').innerText = getNum;
         console.log('getNum1',getNum1);
+        document.getElementById('getNum1').innerText = getNum1;
+        document.getElementById('getNum2').innerText = getNum2;
         console.log(getNum1+getNum2);
+        document.getElementById('getNum3').innerText = getNum1+getNum2;
         // 小練習 prompt num1
         // 小練習 prompt num2
         // ====================
