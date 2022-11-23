@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h3>switch case</h3>
+  <input type="text" id="myText">
+  <button type="button" id="myBtn" onclick="getInputText();">myBtn</button>
+  <p id="result"></p>
+  
+  <script>
+    function getInputText(){
+      let inputTextData = textInput.value ;
+      console.log('inputTextData',inputTextData);
+      ttt(inputTextData)
+    }
+    // input prompt 輸入使用者名稱 判斷 amy bob cat other .....
+    // output Hello XXX 您好 歡迎光臨
+    // other Hello 尚未註冊 請快註冊
+    const resultInput = document.getElementById('result');
+    const textInput = document.getElementById('myText');
+    const myBtn = document.getElementById('myBtn');
+    resultInput.textContent = "Hello XXX 您好 歡迎光臨";
+    //let getName = prompt('輸入名稱');
+    // let getName = "amy123";
+    function ttt(getName) {
+      let resultText = `Hello ${getName} 您好 歡迎光臨 ....`;
+      switch (getName) {
+        case "amy":
+          console.log(resultText);
+          resultInput.textContent = resultText;
+          break;
+  
+        case "bob":
+          console.log("Hello bob  您好 歡迎光臨 ....");
+          resultInput.textContent = resultText;
+          break;
+          
+        case "cat":
+          console.log("Hello cat  您好 歡迎光臨 ....");
+          resultInput.textContent = resultText;
+          break;
+          
+        case "dud":
+          console.log("Hello dud  您好 歡迎光臨 ....");
+          resultInput.textContent = resultText;
+          break;
+      
+        default:
+          console.log("尚未註冊,請快註冊 ");
+          resultInput.textContent ="尚未註冊,請快註冊";
+          break;
+      }
+    }
+    </script>
+</body>
+</html>

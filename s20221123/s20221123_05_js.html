@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 變數的type
+        let x = "text"; //string
+        let y = 123; //nubmer
+        let z = false //boolean
+
+        // 查看變數型態
+        console.log('x typeof() => ',typeof(x));
+        console.log('y typeof() => ',typeof(y));
+        console.log('z typeof() => ',typeof(z));
+        console.log('x typeof() => ', typeof (x));
+        console.log('y typeof() => ', typeof (y));
+        console.log('z typeof() => ', typeof (z));
+
+        // console.log => JS 按F12 可以查看console的資料
+
+        // 宣告變數
+        // let / const / var
+        // let
+        // 區域變數
+        let localNum = 11;
+        console.log('init localNum',localNum);
+        console.log('init localNum', localNum);
+        localNum = 5678;
+        console.log('localNum',localNum);
+        console.log('localNum', localNum);
+
+        // const 常數
+        const constNum = 3.14;
+        console.log('init constNum',constNum);
+        console.log('init constNum', constNum);
+        // constNum = 123;
+        // Uncaught TypeError: Assignment to constant variable.
+        console.log('constNum',constNum);
+        console.log('constNum', constNum);
+
+        // var let 
+        // var 全域變數 function內可以有區域變數的情況
+        var varX = 2; //外部varX 別人寫的
+        function cal() {
+            console.log('ex varX', varX);
+            var varX = 5, varY = 1; //我們自己寫的
+            console.log('varX+varY', varX + varY);
+        }
+        cal();
+        console.log('varX', varX);
+
+        //let
+
+
+
+
+    </script>
+</body>
+
+</html>
