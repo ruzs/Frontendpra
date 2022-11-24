@@ -2,96 +2,91 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
 
 <body>
-    <h1>title</h1>
-    <p>Lorem ipsum dolor sit amet.</p>
+  <h1>title</h1>
+  <p>Lorem ipsum dolor sit amet.</p>
+  <hr>
+  <div id="myDiv">
+  </div>
+  <hr>
+  <!-- 跑操場 -->
+  <!-- index i -->
+  <!-- 從哪裡開始跑 1 => i = 1  -->
+  <!-- 跑幾圈 10  i <= 10 -->
+  <!-- 一次跑一圈  1 i++ -->
+  <script>
 
-    <hr>
-    <br><br>
-    <div id="myDiv">
-    </div>
-    <br><br>
-    <hr>
-    <!-- 跑操場 -->
-    <!-- index i -->
-    <!-- 從哪裡開始跑 1 => i = 1  -->
-    <!-- 跑幾圈 10  i <= 10 -->
-    <!-- 一次跑一圈  1 i++ -->
-    <script>
-        
-        let str2 = `            
+    let str2 = `            
             <h1>title</h1>
             <p>Lorem ipsum dolor sit amet.</p>  
         `;
-        console.log('str2',str2);
-        console.log('str2 typeof',typeof(str2));
-        
-        // 綁定div
-        const myDiv = document.getElementById('myDiv');
-        // myDiv.innerHTML = str2;
-        // myDiv.textContent = str2;
-        myDiv.innerText = str2;
+    console.log('str2', str2);
+    console.log('str2 typeof', typeof (str2));
+
+    // 綁定div
+    const myDiv = document.getElementById('myDiv');
+    // myDiv.innerHTML = str2;
+    // myDiv.textContent = str2;
+    myDiv.innerText = str2;
 
 
-        let testNum = 5;
-        console.log('testNum',testNum);
-        console.log('testNum typeof', typeof(testNum));
-        let testNumStr= testNum.toString(); //變字串
-        let iStr = testNumStr.padStart(2,"0"); //字串補0
-        console.log('iStr',iStr);
-        console.log('iStr typeof', typeof(iStr));
+    let testNum = 5;
+    console.log('testNum', testNum);
+    console.log('testNum typeof', typeof (testNum));
+    let testNumStr = testNum.toString(); //變字串
+    let iStr = testNumStr.padStart(2, "0"); //字串補0
+    console.log('iStr', iStr);
+    console.log('iStr typeof', typeof (iStr));
 
-        // innerText
-        // innerHtml
+    // innerText
+    // innerHtml
 
+    // 顯示裡面的內容 可以純文字 也可以 html<>
+    // document.write('<h1>hello</h1>');
+    // document.write('<h1>hello</h1>');
+    // document.write('<h1>hello</h1>');
+    // document.write('<h1>hello</h1>');
+    for (let i = 1; i <= 9; i++) {
+      for (let j = 1; j <= 9; j++) {
+        // js 補0
+        // let iStr = i.padStart(2,"0");
+        // console.log(i);
+        // let str = `${i} * ${j} = ${i*j} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`;
+        let str = ` ${i.toString().padStart(2, "0")} *
+                            ${j.toString().padStart(2, "0")} = 
+                            ${((i * j).toString().padStart(2, "0"))}; `;
+        // str = "hello $name"  php
+        // str = `hello ${name}`  js
+        // console.log(str);    
+        document.write(str);
+      }
+      document.write('<br>');
+    }
+    document.write('<hr>');
+    // JS 補0
+    // 1 * 1 = 1 1 * 2 = 2 1 * 3 = 3 1 * 4 = 4 1 * 5 = 5 1 * 6 = 6 1 * 7 = 7 1 * 8 = 8 1 * 9 = 9
+    // 01 * 01 = 01 01 * 02 = 02
 
+    let num1 = prompt('num1:');
+    let num2 = prompt('num2:');
+    document.write(`num1 * num2 = ${(num1 * num2)}<br><hr>`);
+    // var Num1 = document.getElementById('Num1').textInput.value;
+    // var Num2 = document.getElementById('Num2').textInput.value;
+    function Mul() {
+      var Num1 = document.getElementById('Num1').value;
+      var Num2 = document.getElementById('Num2').value;
+      document.getElementById('Mul').innerHTML = `<hr>Num1 * Num2 = ${(Num1 * Num2)}`;
+      console.log(Num1 * Num2);
+    }
+    document.write("<input type='text' id='Num1'><input type='text' id='Num2'><button type='button' onclick='Mul();'>mul</button><br><p id='Mul'>Num1 * Num2</p>")
 
-        // 顯示裡面的內容 可以純文字 也可以 html<>
-        // document.write('<h1>hello</h1>');
-        // document.write('<h1>hello</h1>');
-        // document.write('<h1>hello</h1>');
-        // document.write('<h1>hello</h1>');
-        for (let i = 1; i <= 9; i++) {
-            for (let j = 1; j <= 9; j++) {
-                // js 補0
-                // let iStr = i.padStart(2,"0");
-              // console.log(i);
-                // let str = `${i} * ${j} = ${i*j} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`;
-                let str = ` ${i.toString().padStart(2,"0")} *
-                            ${j.toString().padStart(2,"0")} = 
-                            ${((i*j).toString().padStart(2,"0"))}; `;
-                // str = "hello $name"  php
-                // str = `hello ${name}`  js
-                // console.log(str);    
-                document.write(str);
-            }
-            document.write('<br><br>');
-        }
-        document.write('<hr><br>');
-        // JS 補0
-        // 1 * 1 = 1 1 * 2 = 2 1 * 3 = 3 1 * 4 = 4 1 * 5 = 5 1 * 6 = 6 1 * 7 = 7 1 * 8 = 8 1 * 9 = 9
-        // 01 * 01 = 01 01 * 02 = 02
-
-        let num1 = prompt('num1:');
-        let num2 = prompt('num2:');
-        document.write(`num1 * num2 = ${(num1*num2)}<br><hr>`);
-        // var Num1 = document.getElementById('Num1').textInput.value;
-        // var Num2 = document.getElementById('Num2').textInput.value;
-        function Mul(){
-          var Num1 = document.getElementById('Num1').value;
-          var Num2 = document.getElementById('Num2').value;          
-          document.getElementById('Mul').innerHTML = `<hr>Num1 * Num2 = ${(Num1*Num2)}`;
-          console.log(Num1*Num2);
-        }
-        document.write("<input type='text' id='Num1'><input type='text' id='Num2'><button type='button' onclick='Mul();'>mul</button><br><p id='Mul'>Num1 * Num2</p>")
-        
-    </script>
-  </body>
+  </script>
+</body>
 
 </html>
