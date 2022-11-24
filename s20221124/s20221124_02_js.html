@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>9 9 乘法表</h3>
+    <script>
+        // 9 9 乘法表 7 x 8  6 x 3
+        // 練習
+        // 練習
+        // 輸入兩個數字 num1 x num2 乘法表
+        // input or prompt 
+
+
+        // num1 num2
+        let num1 = prompt('num1?');
+        let num2 = prompt('num2?');
+
+        for (let i = 1; i <= num1; i++) {
+            for (let j = 1; j <= num2; j++) {
+                // js 補0
+                // let iStr = i.padStart(2,"0");
+
+                // 1.number -> string
+                // 2.string -> 補0
+                // i
+                // i 1.number -> string
+                // i 2.string -> 補0
+
+                // i 1.number -> string
+                let iStr = i.toString();
+                // i 2.string -> 補0
+                iStr = iStr.padStart(2,"0");
+
+                // j 1.number -> string
+                 let jStr = j.toString();
+                // j 2.string -> 補0
+                jStr = jStr.padStart(2,"0");
+
+                // i * j
+                // j 1.number -> string
+                let result = i*j;
+                let resultStr = result.toString();
+                // j 2.string -> 補0
+                resultStr = resultStr.padStart(2,"0");
+
+                // let str = `${i} * ${j} = ${i*j} ;`;
+                let str = `${iStr} * ${jStr} = ${resultStr} &nbsp;&nbsp;&nbsp;`;
+                
+                document.write(str);
+            }
+            document.write('<br>');
+        }
+
+
+    </script>
+</body>
+
+</html>

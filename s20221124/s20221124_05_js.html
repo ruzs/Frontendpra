@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 1 ...<br>
+    2 ...<br>
+    3 ...<br>
+
+    <div>
+        1...<br>
+        2...<br>
+        3...<br>
+    </div> -->
+
+    <script>
+        let sum = 0; //a4 的白紙
+        // i = 1 , i <= 10
+        // i = 0 , i < 10
+        for(let i = 1 ; i<= 10 ; i++){
+            // document.write(`${i} 目前 ${sum} <br> `);
+            if (i==4) {
+                //break;
+                continue;
+            }
+            document.write(`${i} <br>`);
+            sum = sum + i; // 每個人簽名
+        }
+        //最後把簽名一次顯示出來d
+        document.write(`reslut sum => ${sum} <br>`);
+        
+    </script>
+</body>
+</html>
