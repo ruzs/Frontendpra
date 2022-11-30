@@ -5,16 +5,37 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>作業練習</title>
+  <style>
+    *{
+      font-size: 20px;
+      font-family: 微軟正黑體;
+    }
+  /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  /* Firefox */
+    input[type=number] {
+      -moz-appearance: textfield;
+    }
+    #result{
+      font-size: 30px;
+      font-weight: bold;
+      
+    }
+  </style>
 </head>
 <body>
   <sec>
-    <span>num1:</span><input type="text" id="num1" value="20">
+    <span>num1:</span><input type="number" id="num1" value="20" onchange="result1()">
   </sec>
   <sec>
-    <span style="width:30vh">num2:</span><input type="text" id="num2" value="4">
+    <span>num2:</span><input type="number" id="num2" value="4" onchange="result1()">
   </sec>
   <sec>
-    <select id="opt">
+    <select id="opt" onchange="result1()">
       <option value="+">加法</option>
       <option value="-">減法</option>
       <option value="*">乘法</option>
@@ -23,14 +44,14 @@
   </select>
   </sec>
   <!-- <span>Opt(+,-,*,/):</span><input type="text" id="opt" value="+"><br> -->
-  <button type="button" onclick="result1();"style="margin:10px;padding: 5px;width:100vh;border:solid 1px skyblue;border-radius:5px;background-color:lightskyblue;color:#fff;font-size:20px" >result</button>
-  <hr><div id="result">null</div>
+  <button type="button" onclick="result1();"style="margin:10px;padding: 5px;width:100vh;border:solid 1px skyblue;border-radius:5px;background-color:lightskyblue;color:#fff;font-size:25px;font-weight: bold;" >result</button>
+  <hr><div id="result"></div>
   <script>
   const num1 = document.getElementById('num1');
   const num2 = document.getElementById('num2');
   const opt = document.getElementById('opt');
   const result = document.getElementById('result');
-  
+  console.log(num1);
 
     function result1(){
       let num1v=Number(num1.value);
@@ -54,6 +75,7 @@
           break;
       }
       result.innerHTML = res;
+      console.log(result);
       // console.log(opt.value);
     };
   </script>
