@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>作業練習</title>
+</head>
+<body>
+  <sec>
+    <span>num1:</span><input type="text" id="num1" value="20">
+  </sec>
+  <sec>
+    <span style="width:30vh">num2:</span><input type="text" id="num2" value="4">
+  </sec>
+  <sec>
+    <select id="opt">
+      <option value="+">加法</option>
+      <option value="-">減法</option>
+      <option value="*">乘法</option>
+      <option value="/">除法</option>
+      <option value="50">error</option>
+  </select>
+  </sec>
+  <!-- <span>Opt(+,-,*,/):</span><input type="text" id="opt" value="+"><br> -->
+  <button type="button" onclick="result1();"style="margin:10px;padding: 5px;width:100vh;border:solid 1px skyblue;border-radius:5px;background-color:lightskyblue;color:#fff;font-size:20px" >result</button>
+  <hr><div id="result">null</div>
+  <script>
+  const num1 = document.getElementById('num1');
+  const num2 = document.getElementById('num2');
+  const opt = document.getElementById('opt');
+  const result = document.getElementById('result');
+  
+
+    function result1(){
+      let num1v=Number(num1.value);
+      let num2v=Number(num2.value);
+      f
+      switch (opt.value) {
+        case "+" :
+          res=num1v+num2v;
+          break;
+        case "-" :
+          res=num1v-num2v;
+          break;
+        case "*" :
+          res=num1v*num2v;
+          break;
+        case "/" :
+          res=num1v/num2v;
+          break;
+        default:
+          res="error";
+          console.log("error");
+          break;
+      }
+      result.innerHTML = res;
+      // console.log(opt.value);
+    };
+  </script>
+</body>
+</html>
