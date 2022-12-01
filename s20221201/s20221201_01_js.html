@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+
+    <script>
+        // array method
+        // push 單筆新增
+        // pop 砍掉最後一個
+        // shift 砍掉第一個
+        // concat 合併
+        // ... spread oprator 分算運算子
+        // splice 插入 (插入位置(key),刪除,插入的東西)
+        // indexOf value 找 key ; 有資料=>key 無資料=>-1
+
+        // array
+        // key 很多個 變數 打包在一個大包包裡面
+        // php indexArr vs js arr
+
+        // array to string  =>  Array.toString()
+        // string to array  =>  text.split('分隔符號')
+        let strArr = ['amy','bob','cat'];
+        let res = strArr.toString();
+        let resToArr = res.split(',');
+        let getIndexOf = strArr.indexOf('fsfdfdfs');
+        
+        console.log('getIndexOf',getIndexOf);
+        console.log('res',res);
+        console.log('strArr typeof',typeof(strArr));
+        console.log('res typeof',typeof(res));
+        console.log('resToArr',resToArr);
+        console.log('resToArr typeof',typeof(resToArr));
+        
+
+        let myArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        myArr.splice(4,0,444,555);
+        let myArr2 = [11,12,13];
+        // let myArrConcat = myArr.concat(myArr2);
+        let myArrConcat = [...myArr,...myArr2];
+        console.log('myArrConcat',myArrConcat);
+        myArr[0] = 55688;
+        // myArr.push(11);
+        // myArr.pop();
+        // myArr.shift();
+        console.log('myArr', myArr);
+        console.log('myArr[0]', myArr[0]);
+        console.log('myArr[1]', myArr[1]);
+        console.log('myArr[2]', myArr[2]);
+
+        //for
+        // for (let i = 0; i < myArr.length; i++) {
+        //     console.log('key',i);
+        //     console.log('value',myArr[i]);
+        // }
+
+        // 練習
+        // sum
+        // myArr value 加總
+        // for
+        // let sum = 0;
+        // for (let i = 0; i < myArr.length; i++) {
+        //     console.log('key',i);
+        //     console.log('value',myArr[i]);
+        //     console.log('before sum',sum);
+        //     sum += myArr[i];            
+        //     console.log('after sum',sum);
+        // }
+        // console.log('sum',sum);
+
+        // 基數 
+        // 練習
+        // sum
+        // myArr value 加總 1 3 5 7 9
+        // for
+        // let sum = 0;
+        // for (let i = 0; i < myArr.length; i++) {
+        //     if(i % 2 == 1){
+        //         // console.log('基數 =>',myArr[i]);
+        //         continue;//這次不做
+        //     }
+        //     console.log('key',i);
+        //     console.log('value',myArr[i]);
+        //     console.log('before sum',sum);
+        //     sum += myArr[i];            
+        //     console.log('after sum',sum);
+        // }
+        // console.log('sum',sum);
+
+        // 偶數 
+        // 練習
+        // sum
+        // myArr value 加總 2 4 6 8 10
+        // for
+        // let sum = 0;
+        // for (let i = 0; i < myArr.length; i++) {
+        //     if(i % 2 == 0){
+        //         // console.log('基數 =>',myArr[i]);
+        //         continue;//這次不做
+        //     }
+        //     console.log('key',i);
+        //     console.log('value',myArr[i]);
+        //     console.log('before sum',sum);
+        //     sum += myArr[i];            
+        //     console.log('after sum',sum);
+        // }
+        // console.log('sum',sum);
+
+        let sum = 0;
+        let sumOdd = 0;
+        let sumEven = 0;
+
+        for (let i = 0; i < myArr.length; i++) {            
+            if (myArr[i] % 2 == 1) {
+                console.log(`基數 myArr[${i}]`, myArr[i]);
+                sumOdd += myArr[i];
+            } else {
+                console.log(`偶數 myArr[${i}]`, myArr[i]);
+                sumEven += myArr[i];
+            }
+            sum += myArr[i];
+        }
+        //condiction true / false
+        // if(true){
+
+        // }else{
+        //     (false)
+        // }
+        
+        console.log('sum', sum);
+        console.log('sumOdd', sumOdd);
+        console.log('sumEven', sumEven);
+
+       
+    </script>
+
+</body>
+
+</html>
