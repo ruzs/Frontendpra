@@ -10,6 +10,7 @@
   <script>
     let myArr = [1,2,3,4,5,6,7,8,9,10];
 
+    // newArr
     let newArr=[];
     myArr.forEach(value => {
       newArr.push(value*2);
@@ -19,7 +20,7 @@
       if (index<5) {
         new2Arr.push(value*3);
       }else{
-        new2Arr.push();
+        new2Arr.push(value);
       }
     });
 
@@ -27,6 +28,16 @@
     console.log("new",newArr);
     console.log("new2",new2Arr);
 
+    // map 製作一個新的array,array內容可由其他array內容做更改(推薦使用function)
+    let mapArr = myArr.map((value,index) => {
+            if(value <= 6){
+                return value*3;
+            }else{
+                return value;
+            }
+        });
+        // console.log('myArr',myArr);
+        console.log('mapArr',mapArr);
 
   </script>
 </body>
