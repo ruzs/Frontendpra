@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let myArr = [1,2,3,4,5,6,7,8,9,10];
+
+    let newArr=[];
+    myArr.forEach(value => {
+      newArr.push(value*2);
+    });
+    let new2Arr=[];
+    myArr.forEach((value,index) => {
+      if (index<5) {
+        new2Arr.push(value*3);
+      }else{
+        new2Arr.push();
+      }
+    });
+
+    console.log("my",myArr);
+    console.log("new",newArr);
+    console.log("new2",new2Arr);
+
+
+  </script>
+</body>
+</html>
