@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>addEventListener(監聽)</title>
+</head>
+<body>
+  <p id="demo"></p>
+  <Button id="myBtn">myBtn</Button>
+  <Button id="myBtn2">myBtn2</Button>
+  <Button id="myBtn3">myBtn3</Button>
+  <Button id="myBtn4">myBtn4</Button>
+  <Button id="myBtn5">myBtn5</Button>
+  <script>
+    //addEventListener(監聽) 利用
+    // method 1 蓋印章法
+    function myFun() {
+      document.getElementById("demo").innerHTML = "Hello World"
+    }
+    myBtn.addEventListener("click",myFun);
+    // method 2 直接利用法
+    myBtn2.addEventListener("click",function(){
+      document.getElementById("demo").innerHTML = "Hello World 222"
+    })
+    // method 3 箭頭函式 直接利用法
+    myBtn3.addEventListener("click",()=>{
+      document.getElementById("demo").innerHTML = "Hello World 333"
+    })
+    // method 4 箭頭函式 蓋印章法
+    a44=()=>{document.getElementById("demo").innerHTML = "Hello World 444"};
+    myBtn4.addEventListener("click",a44)
+
+    // method 5 箭頭函式 蓋印章法 動作也能用function return
+    a55=()=>{document.getElementById("demo").innerHTML = "Hello World 555"};
+    acc = ()=>{return "click";};
+    myBtn5.addEventListener(acc(),a55)
+
+    // 1. a44 代表整個function
+    // 2. a44() 宣告function
+
+  </script>
+</body>
+</html>
