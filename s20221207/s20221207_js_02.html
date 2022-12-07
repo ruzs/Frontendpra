@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>function</title>
+</head>
+<body>
+  <button id="myBtn1">myBtn1</button>
+  <button id="myBtn2">myBtn2</button>
+  <button id="myBtn3">myBtn3</button>
+  <script>
+    // map 製作一個新的array,
+    //array內容可由其他array內容做更改(推薦使用function)
+    let employeeArr = [3,4,5,6,7];
+    let employeeBonusArr = employeeArr.map((value,key)=>{
+      return value*2;
+    });    
+
+    //reduce() array加總
+    //value 需要+的值
+    //total 為+完後的值
+    console.log(employeeBonusArr);
+    let i =0 ;
+    let sum = employeeBonusArr.reduce((total,value)=>{
+      i++;
+      console.log("i",i);
+      console.log("total",total);
+      console.log("value",value);
+      return total+value;
+    })
+    console.log("sum",sum);
+
+    //filter array篩選 
+    let employeeArrFilter = employeeArr.filter((value)=>{
+      return value < 5 ;
+    })
+    console.log("employeeArr",employeeArr);
+    console.log("employeeArrFilter",employeeArrFilter);
+    //以上功能foreach都能做到 但相對簡便
+
+    let employeeArrFilter2 = employeeArr.filter((value)=>{
+      return value < 6 ;
+    })
+    console.log("employeeArrFilter2",employeeArrFilter2);
+</script>
+</body>
+</html>
