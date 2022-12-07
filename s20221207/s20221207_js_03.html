@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>function</title>
+</head>
+<body>
+  <button id="myBtn1">myBtn1</button>
+  <button id="myBtn2">myBtn2</button>
+  <button id="myBtn3">myBtn3</button>
+  <script>
+    let employeeArr = [3,4,5,6,7];
+    //map 用forEach實現
+    let bonusArr=[];
+    employeeArr.forEach((value,key)=>{
+      let newValue = value*2;
+      bonusArr.push(newValue);
+    });
+    console.log("bonusArr",bonusArr);
+
+    //reduce 用forEach實現
+    let sumValue = 100; //初始值100
+    bonusArr.forEach((value,key) => {
+        sumValue += value;
+    })
+    console.log('sumValue',sumValue);
+
+    //filter 用forEach實現
+    let filterArr= [];
+    bonusArr.forEach((value ,key) => {
+        if(value > 10){
+            filterArr.push(value);
+        }
+    });
+
+    console.log('filterArr',filterArr);
+</script>
+</body>
+</html>
