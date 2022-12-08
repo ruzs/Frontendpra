@@ -22,9 +22,18 @@
         // 2.Array.from() 
         const myBtn = document.getElementsByClassName('myBtn');
         console.log('myBtn', myBtn);
+        console.log('myBtn[0]', myBtn[0]);
         console.log('myBtn typeof', typeof (myBtn));
         console.log('myBtn Array.isArray()', Array.isArray(myBtn));
+        // for
+        for (let i = 0; i < myBtn.length; i++) {
+            console.log(`myBtn${i}`,myBtn[i]);
+
+        }
+
+        // foreach
         Array.from(myBtn).forEach((value,key) => {
+            // value // myBtn[key]
             console.log(value);
             console.log('this',this);
             if(key < 3){
@@ -32,8 +41,10 @@
             }
             value.addEventListener('click',function(){
                 this.style.color = 'blue';
+                console.log('key',key);
             });
         });
+
     </script>
 
 </body>
