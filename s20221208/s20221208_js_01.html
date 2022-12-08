@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // array vs object
+        // array foreach ok
+        // object foreach no
+        // typeof 都是object
+        // Array.isArray() 判斷是否為純陣列
+
+
+        let x = [1, 2, 3];
+        let y = { 's1': 'amy', 's2': 'bob' };
+
+        x.forEach((value, index) => {
+            console.log(`x${index}`, value);
+        });
+        // y.forEach((value,index) => {
+        //     console.log(`y${index}` ,value);
+        // });
+        console.log('typeof x ', typeof (x));
+        console.log('Array.isArray x ', Array.isArray(x));
+        console.log('typeof y ', typeof (y));
+        console.log('Array.isArray y ', Array.isArray(y));
+    </script>
+</body>
+
+</html>

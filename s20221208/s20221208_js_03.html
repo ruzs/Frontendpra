@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .myClass {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        // body this
+        console.log('this',this);
+
+        let obj = {
+            // 變數 property
+            'name': '小明',
+            'age': 18,
+            'address' : '泰山xxx',
+            'location' : {'key' : 'value test'},
+            // 方法 method
+            // 只有obj function this 指定上一層obj
+            'helloFun': function () {
+                // console.log('hello');
+                console.log('this.name',this.name);
+                let str = `Hello 我是${this.name} 今年${this.age}歲 ${this.location.key}`;
+                console.log(str);
+                
+            },
+            // arrow 箭頭函式 this 指向外部的window
+            'sleepFun' : () => {
+                // console.log('sleepFun this' , this);
+                // obj.name
+                // let str = `${this.name}`;
+            },
+            getName(){
+                console.log('this',this);
+                return this.name;
+            }
+            
+        }
+
+        console.log('obj', obj);
+        obj.name;
+        console.log('obj.name', obj.name);
+        obj.age;
+        console.log('obj.age', obj.age);
+        obj.helloFun();
+        obj.sleepFun();
+        // property
+        // address : 'xxxx路'
+
+        // method
+        // 'sleepFun'
+        // log sleep...
+
+        
+
+
+    </script>
+</body>
+
+</html>

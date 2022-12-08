@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .myClass {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        // php 
+        // indexArr = [1,2,3,4,5]
+        // asscoArr = [
+        //     's1' => 'amy',
+        //     's2' => 'bob',
+        //     's3' => 'cat'
+        // ]
+
+        // js
+        // array = [1,2,3,4,5]
+        // object
+        let myObj = {
+            's1': 'amy',
+            's2': 'bob',
+            's3': 'cat'
+        }
+        // let myObj2 = {1,2,3};
+        console.log('myObj', myObj);
+        // 小練習
+        // 5個手機　
+        // name : price
+        let myMobile = {
+            'iPhone14_128G': 25800,
+            'iPhone14_256G': 30000,
+            'iPhone14_512G': 45000,
+            'iPhone13_128G': 20000,
+            'iPhone13_256G': 25000,
+        }
+        console.log('myMobile', myMobile);
+  
+        // 多維obj [{},{},{}]
+        let multiMobileArr = [
+            {
+                'name': 'iPhone14_128G',
+                'price': 25800,
+                'location': ['北', '中', '南'],
+                'testObj' : {'s1' : 'amy'}
+            },
+            {
+                'name': 'iPhone14_256G',
+                'price': 30000,
+                'location': ['北', '中', '南']
+
+            },
+            {
+                'name': 'iPhone14_512G',
+                'price': 45000,
+                'location': ['北', '中', '南']
+
+            }
+        ];
+        console.log('multiMobileArr', multiMobileArr);
+        console.log('multiMobileArr.name', multiMobileArr[0].name);
+        console.log('multiMobileArr.location', multiMobileArr[0].location);
+        console.log('multiMobileArr.testObj', multiMobileArr[0].testObj);
+        console.log('multiMobileArr.location', multiMobileArr[0].location);
+        multiMobileArr[0].location.forEach(element => {
+            console.log(element);
+        });
+
+        // foreach
+        let sum = 0;
+        multiMobileArr.forEach((value, key) => {
+            console.log(`${key} => `, value);
+            console.log('value.price => ', value.price );
+            // Q1
+            // value.price
+            // value['price']
+            let price = 'price123';
+            // value[price]
+            sum += value.price;
+        });
+       
+        // object {{} {} {}}
+        let myObj2 = {
+            'obj1' : {
+                'name': 'iPhone14_128G',
+                'price': 25800,
+                'location': ['北', '中', '南']
+            },
+            'obj2' : {
+                'name': 'iPhone14_128G',
+                'price': 25800,
+                'location': ['北', '中', '南']
+            },
+            'obj3' : {
+                'name': 'iPhone14_128G',
+                'price': 25800,
+                'location': ['北', '中', '南']
+            },
+            'myFun' : function (){
+                console.log('hello');S
+            }
+        }
+        console.log('myObj2', myObj2);
+
+        // student.name
+        // student->name
+        // student['name']
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  var someone="全域";
+  function callSomeone(){
+    console.log(this.someone);
+  }
+  console.log(callSomeone());
+  var obj3 ={
+    someone: "物件3",
+    ab :function() {
+      callSomeone();
+    }
+    
+  }
+  obj3.ab();
+</script>  
+</body>
+</html>

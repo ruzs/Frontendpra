@@ -31,9 +31,9 @@
         console.log('this.name',this.name);
         let str = `Hello 我是${this.name} 今年${this.age}歲 ${this.location.key}`;
         console.log(str);
-        
       },
-      // arrow 箭頭函式 this 指向外部的window
+      // arrow 箭頭函式中的 this 指向外部的window
+      // 應盡量避免
       'sleepFun' : () => {
         // console.log('sleepFun this' , this);
         // obj.name
@@ -47,6 +47,7 @@
     obj.age;
     console.log('obj.age', obj.age);
     obj.helloFun();
+    // debugger;
     obj.sleepFun();
     // property
     // address : 'xxxx路'
