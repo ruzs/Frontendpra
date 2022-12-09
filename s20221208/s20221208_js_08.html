@@ -42,12 +42,16 @@
             // 建立create p
             // createElement('p')
             const greenP = document.createElement('p');
+            //在p標籤的節點給文字
             greenP.textContent = 'hello :))' + text;
             text++;
+            //在P標籤的節點給style文字顏色
             greenP.style.color = 'green';
+            //console.log確定greenP的P標籤節點
             console.log('greenP', greenP);
 
             console.log('appendFun ok');
+            //將P標籤節點放在myDiv的子節點
             myDiv.appendChild(greenP);
             // myDiv.insertBefore(greenP,null);
 
