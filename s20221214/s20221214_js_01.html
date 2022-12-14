@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="crossorigin="anonymous"></script>
+  <title>Document</title>
+</head>
+<body>
+  <h3 id="myH3">hello jquery</h3> 
+
+  <script>
+      $(function(){
+          // js
+          const myH3Js = document.getElementById('myH3') ;
+          // jq 的 mathod 只能用來操作JQ的物件
+          const myH3Jq = $('#myH3');
+          console.log('myH3Js',myH3Js);
+          console.log('myH3Jq',myH3Jq);
+         // $('#myH3')
+          // $('#myH3').text('12345');
+          // $('#myH3').css('color','red');
+          // myH3Js.css('color','red');;
+          myH3Jq.css('color','red');;
+          
+      });
+  </script>
+</body>
+</html>
