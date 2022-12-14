@@ -19,9 +19,9 @@
     <p>Lorem ipsum dolor sit amet.</p>
     <p>Lorem ipsum dolor sit amet.</p>
     <p>Lorem ipsum dolor sit amet.</p>
-    <button type="button" id="hideBtn">hide</button>
-    <button type="button" id="showBtn">show</button>
-    <button type="button" id="toggleBtn">toggle</button>
+    <button type="button" id="fadeInBtn">Fade in</button>
+    <button type="button" id="fadeOutBtn">Fade out</button>
+    <button type="button" id="fadeToggleBtn">Fade toggle</button>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"
         integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ=="
@@ -32,17 +32,17 @@
 
 
         $(function () {
-
-            $('#hideBtn').click(function () {
-                $('p').hide();
+            // 淡入 淡出
+            $('#fadeInBtn').click(function () {
+                $('p').fadeIn(2000);
             })
-            $('#showBtn').click(function () {
-                $('p').show();
+            // event on('event',callback);
+            $('#fadeOutBtn').on('click',function () {
+                $('p').fadeOut(3000);
             })
-            $('#toggleBtn').click(function () {
-                $('p').toggle();
+            $('#fadeToggleBtn').click(function () {
+                $('p').fadeToggle(1000);
             })
-
         });
     </script>
 </body>

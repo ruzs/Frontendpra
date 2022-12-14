@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1 {
+            background-color: lightpink;
+            width: 800px;
+            height: 30px;
+        }
+
+        .box2 {
+            width: 800px;
+            height: 200px;
+            background-color: lightblue;
+            /* display: none; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+
+    </div>
+    <div class="box2">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti voluptates aperiam rerum corporis unde
+        architecto rem fugiat, quaerat harum, cumque earum officiis beatae mollitia provident esse dicta, repellendus
+        aliquid eveniet voluptatibus fuga ratione. Blanditiis cupiditate aliquid fugiat at reprehenderit, numquam
+        eveniet, molestiae unde natus, quasi perspiciatis vero. Dolores eius sit repudiandae magnam optio similique quam
+        consectetur aut, iure ut doloremque provident soluta reprehenderit, voluptatem sed maiores eligendi perspiciatis
+        dignissimos sapiente? Reiciendis, quia neque ipsum, nulla perferendis quis incidunt provident inventore illo
+        natus numquam nobis, et suscipit expedita cumque! Eum modi laboriosam quos minus temporibus ex dolor aspernatur
+        consequatur voluptas fugit.
+    </div>
+
+    <button type="button" id="slideUpBtn">slideUpBtn</button>
+    <button type="button" id="slideDownBtn">slideDownBtn</button>
+    <button type="button" id="slideToggleBtn">slideToggleBtn</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"
+        integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+
+
+
+        $(function () {
+            $('.box1').click(function () {
+                // $('.box2').slideUp();
+                $('.box2').slideToggle();
+            });
+            // jquery methon chain
+            $('#slideUpBtn').click(function () {
+                $('.box2').css("color", "red").slideUp(2000).slideDown(2000).slideUp(2000).slideDown(2000);
+            })
+            $('#slideDownBtn').click(function () {
+                $('.box2').slideDown(3000,function(){
+                    alert('收費10000');
+                });
+            })
+            $('#slideToggleBtn').click(function () {
+                $('.box2').slideToggle();
+            })
+        });
+    </script>
+</body>
+
+</html>

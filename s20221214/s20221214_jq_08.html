@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1 {
+            position: absolute;
+            background-color: lightpink;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <button type="button" id="startBtn">startBtn</button>
+    <button type="button" id="stopBtn">stopBtn</button>
+    <br>
+    <br>
+    <br>
+    <div class="box1">
+
+    </div>
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"
+        integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+
+
+
+        $(function () {
+
+            $('#startBtn').click(function () {
+                // 動畫可以+= 會越來越大
+                // +150px 只會變大一次
+                // 250px left只會改變1次
+                $("div").animate({
+                    left: '+=100px',
+                    // height: '+=150px',
+                    // width: '+=150px'
+                },1000);
+            })
+            $('#stopBtn').click(function () {
+                $("div").stop();
+            })
+
+
+
+        });
+    </script>
+</body>
+
+</html>
