@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1 {
+            width: 800px;
+            height: 50px;
+            background-color: lightpink;
+        }
+
+        .box2 {
+            width: 800px;
+            height: 200px;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>elect change animate</h3>
+    <select name="" id="">
+        <option value="1">hide</option>
+        <option value="2">fade</option>
+        <option value="3">slide</option>
+    </select>
+    <hr>
+    <div class="box1"></div>
+    <div class="box2">
+        Hello
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"
+        integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+
+        // text or html 
+        // input => val
+
+
+        $(function () {
+            
+
+            // 練習 select
+            // 1. hide show toggle
+            // 2. fade in fade out toggle
+            // 3. slide up / slide down toggle
+            // box1 => click 不消失
+            // box2
+
+            // 1.get select value
+            // let getSelectVal = $('select').val();
+            // console.log('getSelectVal', getSelectVal);
+            const box2 = $('.box2');
+            //點選box1(紅色區域)會使select的選項傳值給function\
+            //function會把傳的值丟給switch做選擇分別是hide fade slide
+            $('.box1').click(function () {
+                console.log('box1 ok');
+                let getSelectVal = Number($('select').val());
+                console.log('getSelectVal', getSelectVal);
+                console.log('getSelectVal typeof', typeof (getSelectVal));
+                switch (getSelectVal) {
+                    case 1:
+                        box2.toggle(500);
+                        box2.text('hello hide');
+                        break;
+                    case 2:
+                        box2.fadeToggle(500);
+                        box2.text('hello fade');
+                        break;
+                    case 3:
+                        box2.slideToggle(500);
+                        box2.text('hello slide');
+                        break;
+                    default:
+                        break;
+                }
+
+            });
+
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>h3 title</h3>
+    <div>
+
+    </div>
+    <p>Lorem ipsums dolor sit amet.</p>
+    <p>Lorem <span>hello :))</span>ipsums dolor sit amet.</p>
+    <input type="text" name="" id="" value="">
+    <input type="text" name="" id="" value="">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"
+        integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+
+        // text or html 
+        // input => val
+
+
+        $(function () {
+            $('input').val('55688');
+            // 取值 get getter
+            let h3Text = $('h3').text();
+            // 設定值 賦值 set setter
+            $('h3').text('change h3 text');
+
+            $('div').html('<hr>');
+            //    $('div').text('<hr>');
+
+            //    let getH3Value = $('h3').text();
+            // console.log('getH3Value', getH3Value);
+
+            console.log('h3Text', h3Text);
+
+            $('input').change(function () {
+                $(this).css('color', 'red');
+                let getInputValue = $(this).val();
+                console.log('getInputValue', getInputValue);
+                console.log("this",$(this));
+            });
+        });
+    </script>
+</body>
+
+</html>
