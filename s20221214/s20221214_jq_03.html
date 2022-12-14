@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <p data-price="100">1.Lorem ipsum dolor sit amet.1</p>
+        <p data-price="100">2.Lorem ipsum dolor sit amet.2</p>
+        <p data-price="100">3.Lorem ipsum dolor sit amet.3</p>
+        <p data-price="100">4.Lorem ipsum dolor sit amet.4</p>
+        <p data-price="100">5.Lorem ipsum dolor sit amet.5</p>
+    </div>
+    <div>
+        <p data-price="100">1.Lorem ipsum dolor sit amet.6</p>
+        <p data-price="100">2.Lorem ipsum dolor sit amet.7</p>
+        <p data-price="100">3.Lorem ipsum dolor sit amet.8</p>
+        <p data-price="100">4.Lorem ipsum dolor sit amet.9</p>
+        <p data-price="100">5.Lorem ipsum dolor sit amet.10</p>
+    </div>
+    <div>
+        <p data-price="100">1.Lorem ipsum dolor sit amet.11</p>
+        <p data-price="100">2.Lorem ipsum dolor sit amet.12</p>
+        <p data-price="100">3.Lorem ipsum dolor sit amet.13</p>
+        <p data-price="100">4.Lorem ipsum dolor sit amet.14</p>
+        <p data-price="100">5.Lorem ipsum dolor sit amet.15</p>
+    </div>
+    <button type="button">myBtn</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"
+        integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        // const allP = document.querySelectorAll('p');
+        // console.log(allP);
+        // allP.forEach(element => {
+        //     element.addEventListener('click',function(value,key){
+        //         this.style.color = 'blue';
+        //         this.hide();
+        //         // console.log('key',key);
+        //     })
+        // });
+        $(function(){
+            
+            $('p').click(function(){
+                // hide() jquery method
+                $(this).hide();
+                console.log('this',this);
+                console.log('$(this)',$(this));
+            });
+
+            // 裡面也可以用箭頭函示
+            // let num = 0;
+            $('button').click((value) => {
+                console.log(value);
+                // $('p').first().hide(); // hide 裡面有5個 p 
+                // $('p').last().remove();
+                // $('p').eq(num).remove();
+                $('p').css("color","red").filter(":odd").remove();
+                // $('p:last').remove();
+                
+                // $('p').hide();
+            });
+
+            // 小練習 按下button 一次只消失一個p
+            
+        });
+    </script>
+</body>
+
+</html>
