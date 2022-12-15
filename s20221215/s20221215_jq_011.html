@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1 {
+            width: 100%;
+            height: 50px;
+            background-color: lightpink;
+            text-align: center;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+
+        }
+
+        button {
+            margin: 10px;
+        }
+
+        .box2 {
+            width: 100%;
+            height: 70vh;
+            background-color: lightblue;
+            overflow: scroll;
+            display: none;
+        }
+        p{
+            display: none;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>tabs</h3>
+
+    <div class="box1">
+        <button type="button" id="tab1">tab1</button>
+        <button type="button" id="tab2">tab2</button>
+        <button type="button" id="tab3">tab3</button>
+        <button type="button" id="tab4">tab4</button>
+    </div>
+    <div class="box2">
+        <p> 
+            <img src="https://picsum.photos/id/1/200/200" alt="" width="100px">
+            1111 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima rerum inventore accusamus ad deserunt dolor,
+            rem quas hic aut, molestias eius error. Consequatur nam placeat facere pariatur, doloremque nulla, fugit
+            quibusdam et enim, reiciendis accusamus possimus saepe minima ea eaque inventore suscipit molestias
+            doloribus. Quam autem eveniet nobis quaerat fuga ipsa, veniam eligendi reiciendis molestiae dicta atque
+            natus perferendis neque possimus vitae repellat impedit modi eius magnam quis quidem unde facere? Magni
+            quibusdam ab dicta odio? Dolore doloribus deleniti ducimus tempore voluptate ipsa nisi aperiam doloremque
+            consectetur sunt id, dolores deserunt nemo nostrum optio odit consequatur fuga atque, aliquid eligendi!</p>
+        <p> 2222 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima rerum inventore accusamus ad deserunt dolor,
+            rem quas hic aut, molestias eius error. Consequatur nam placeat facere pariatur, doloremque nulla, fugit
+            quibusdam et enim, reiciendis accusamus possimus saepe minima ea eaque inventore suscipit molestias
+            doloribus. Quam autem eveniet nobis quaerat fuga ipsa, veniam eligendi reiciendis molestiae dicta atque
+            natus perferendis neque possimus vitae repellat impedit modi eius magnam quis quidem unde facere? Magni
+            quibusdam ab dicta odio? Dolore doloribus deleniti ducimus tempore voluptate ipsa nisi aperiam doloremque
+            consectetur sunt id, dolores deserunt nemo nostrum optio odit consequatur fuga atque, aliquid eligendi!</p>
+        <p> 3333 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima rerum inventore accusamus ad deserunt dolor,
+            rem quas hic aut, molestias eius error. Consequatur nam placeat facere pariatur, doloremque nulla, fugit
+            quibusdam et enim, reiciendis accusamus possimus saepe minima ea eaque inventore suscipit molestias
+            doloribus. Quam autem eveniet nobis quaerat fuga ipsa, veniam eligendi reiciendis molestiae dicta atque
+            natus perferendis neque possimus vitae repellat impedit modi eius magnam quis quidem unde facere? Magni
+            quibusdam ab dicta odio? Dolore doloribus deleniti ducimus tempore voluptate ipsa nisi aperiam doloremque
+            consectetur sunt id, dolores deserunt nemo nostrum optio odit consequatur fuga atque, aliquid eligendi!</p>
+        <p> 4444 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima rerum inventore accusamus ad deserunt dolor,
+            rem quas hic aut, molestias eius error. Consequatur nam placeat facere pariatur, doloremque nulla, fugit
+            quibusdam et enim, reiciendis accusamus possimus saepe minima ea eaque inventore suscipit molestias
+            doloribus. Quam autem eveniet nobis quaerat fuga ipsa, veniam eligendi reiciendis molestiae dicta atque
+            natus perferendis neque possimus vitae repellat impedit modi eius magnam quis quidem unde facere? Magni
+            quibusdam ab dicta odio? Dolore doloribus deleniti ducimus tempore voluptate ipsa nisi aperiam doloremque
+            consectetur sunt id, dolores deserunt nemo nostrum optio odit consequatur fuga atque, aliquid eligendi!</p>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"
+        integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+
+        // text or html 
+        // input => val
+
+
+        $(function () {
+
+            // 綁定
+            const tab1 = $('#tab1');
+            const tab2 = $('#tab2');
+            const tab3 = $('#tab3');
+            const tab4 = $('#tab4');
+            const box2 = $('.box2');
+            const allP = $('.box2>p');
+            console.log('allP',allP);
+
+            tab1.click(function () {
+                // box2.text('11111');
+                box2.show();
+                allP.hide();
+                $(this).css('color','black');
+                allP.eq(0).slideDown(10000,function(){
+                    // alert('123');
+                    $(this).css('color','red');
+                }).slideUp(10000,function(){
+                    $(this).css('color','black');
+                });
+            });
+
+            tab2.click(function () {
+                // box2.text('2222');
+                box2.show();
+                allP.hide();
+                allP.eq(1).slideDown();
+            });
+
+            tab3.click(function () {
+                // box2.text('3333');
+                box2.show();
+                allP.hide();
+                allP.eq(2).slideDown();
+            });
+
+            tab4.click(function () {
+                // box2.text('4444');
+                box2.show();
+                allP.hide();
+                allP.eq(3).slideDown(2000);
+            });
+
+          
+        });
+    </script>
+</body>
+
+</html>

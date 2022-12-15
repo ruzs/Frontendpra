@@ -41,10 +41,11 @@
     <h3>tabs</h3>
 
     <div class="box1">
-        <button class="myBtn" type="button" id="tab1" data-text="data-text1">tab1</button>
+        <button class="myBtn" type="button" id="tab1" data-text="data-text1" data-s55688="12345"
+            data-s55688222="22212345">tab1</button>
         <button class="myBtn" type="button" id="tab2" data-text="data-text2">tab2</button>
         <button class="myBtn" type="button" id="tab3" data-text="data-text3">tab3</button>
-        <button class="myBtn" type="button" id="tab4" data-text="data-text4">tab4</button>
+        <button class="myBtn" type="button" id="tab4" data-text="data-text4" onclick="test456();">tab4</button>
     </div>
 
     <div class="container mt-3">
@@ -109,12 +110,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-
-        // text or html 
-        // input => val
-
-
         $(function () {
+            function test456() {
+                alert('456');
+            }
 
             // 綁定
             const tab1 = $('#tab1');
@@ -126,6 +125,8 @@
             const myBtn = $('.myBtn');
             console.log('allP', allP);
             console.log('tab1', tab1);
+            let data = tab1.data();
+            console.log('data', data);
 
             // data-set 只可以抓data-變數的東西
 
@@ -134,8 +135,40 @@
                 box2.show();
                 allP.hide();
                 // allP.eq(0).slideDown();
+                // test123();
+                // test465();
 
-                $(`#${getData}`).slideDown();
+
+                let myStr = `#${getData}`;
+                // console.log('myStr', myStr);
+                // console.log('myStr typeof', typeof (myStr));
+
+                // let str1 = `123` + `456`;
+                // let str2 = `123456`;
+                // let str3 = str1 + str2;
+                // let str4 = `${str1}${str1}`;
+
+                // php
+                // $str1 = '123' . '456'
+                // $str2 = '123456'
+                // $str3 = str1 . str2
+                // $str4 = '$str1$str2'
+
+                //jquery object
+                // $(#選擇器)
+                // $(this)
+
+
+                // string
+                // #選擇器
+                // this
+
+
+                // $(`#${getData}`).slideDown();
+                $(myStr).slideDown(2000,function(){
+                   test();
+                });
+                console.log($(`#${getData}`));
                 console.log('getData', getData);
             });
 
@@ -145,49 +178,11 @@
             let getTab1Data = tab1.data('text');
             console.log('getTab1Data', getTab1Data);
 
-            // tab1.click(function () {
-            //     // box2.text('11111');
-            //     box2.show();
-            //     allP.hide();
-            //     allP.eq(0).slideDown();
-            // });
-
-            // tab2.click(function () {
-            //     // box2.text('2222');
-            //     box2.show();
-            //     allP.hide();
-            //     allP.eq(1).slideDown();
-            // });
-
-            // tab3.click(function () {
-            //     // box2.text('3333');
-            //     box2.show();
-            //     allP.hide();
-            //     allP.eq(2).slideDown();
-            // });
-
-            // tab4.click(function () {
-            //     // box2.text('4444');
-            //     box2.show();
-            //     allP.hide();
-            //     allP.eq(3).slideDown(2000);
-            // });
-
-            // php
-                // $str1 = '123' . '456'
-                // $str2 = '123456'
-                // $str3 = str1 . str2
-                // $str4 = '$str1$str2'
-                
-                //jquery object
-                // $(#選擇器)
-                // $(this)
 
 
-                // string
-                // #選擇器
-                // this
+
         });
+
     </script>
 </body>
 
