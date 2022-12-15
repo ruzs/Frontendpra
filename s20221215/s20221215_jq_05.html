@@ -6,18 +6,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .red{
+            color: red;
+            font-size: 48px;
+        }
+
+
+        .green{
+            color:green;
+            font-size: 30px;
+        }
+
+        .bold{
+            font-weight: bold;
+        }
+    </style>
    
 </head>
 
 <body>
     <h3>jquery html</h3>
-
+    <button type="button">myBtn</button>
     <hr>
     <h3>JS</h3>
-    <p id="pJs">Hello Js</p>
+    <p class="green" id="pJs">Hello Js</p>
     <hr>
     <h3>JQ</h3>
-    <p id="pJq">Hello Jq</p>
+    <p class="green" id="pJq">Hello Jq</p>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"
@@ -49,8 +65,36 @@
             // jq
             const pJq = $('#pJq');
 
+            const myBtn = $('button');
+
             pJs.innerText = 'Change Js';
             pJq.text('change jq');
+
+            myBtn.click(function(){
+                // $('p').css('color','red');
+                // $('p').css('font-size','48px');
+                // $('p').removeClass();
+                // $('p').addClass('red');
+                // $('p').addClass('bold');
+                // $('p').toggleClass('red');
+
+                //attribute
+                $('p').attr('class','red bold');
+                $('p').attr('data-hello','hello');
+
+                
+            });
+
+            // 同一個按鈕
+
+            // 小練習 button
+            // color red
+            // font-size 20px
+            // text-ceter
+
+            // color black
+            // font-size 16px
+            // text-left
             
 
         });
