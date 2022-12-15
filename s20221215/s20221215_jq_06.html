@@ -79,9 +79,13 @@
             myBtn.click(function () {
                 console.log('num', num);
                 console.log('num${colorArr[num]}', colorArr[num]);
-                num++;
-                checkNum= num % colorArr.length;
-                $('p').attr('class',colorArr[checkNum]);
+                let randomNum =Math.floor(Math.random()*(colorArr.length - 1));
+                console.log("randomNum",randomNum);
+                $('p').attr('class', colorArr[randomNum]);
+                // num++;
+                // checkNum= num % colorArr.length;
+                // $('p').attr('class',colorArr[checkNum]);
+
                 // switch (num) {
                 //     case 0:
                 //         $('p').attr('class', `${colorArr[0]}`);
