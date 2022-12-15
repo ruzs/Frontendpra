@@ -79,23 +79,26 @@
             myBtn.click(function () {
                 console.log('num', num);
                 console.log('num${colorArr[num]}', colorArr[num]);
-                switch (num) {
-                    case 0:
-                        $('p').attr('class', `${colorArr[0]}`);
-                        num = 1;
-                        break;
-                    case 1:
-                        $('p').attr('class', `${colorArr[1]}`);
-                        num = 2;
-                        break;
-                    case 2:
-                        $('p').attr('class', `${colorArr[2]}`);
-                        num = 0;
-                        break;
+                num++;
+                checkNum= num % colorArr.length;
+                $('p').attr('class',colorArr[checkNum]);
+                // switch (num) {
+                //     case 0:
+                //         $('p').attr('class', `${colorArr[0]}`);
+                //         num = 1;
+                //         break;
+                //     case 1:
+                //         $('p').attr('class', `${colorArr[1]}`);
+                //         num = 2;
+                //         break;
+                //     case 2:
+                //         $('p').attr('class', `${colorArr[2]}`);
+                //         num = 0;
+                //         break;
 
-                    default:
-                        break;
-                }
+                //     default:
+                //         break;
+                // }
             });
 
             // 同一個按鈕
