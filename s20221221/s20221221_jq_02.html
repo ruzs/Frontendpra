@@ -119,24 +119,32 @@
 
 
                 //jquery each
-                // $.each(collection, function (indexInArray, valueOfElement) { 
+                // $.each(collection(陣列),  function (indexInArray, valueOfElement) { 
 
                 // });
-
+                // 上下這兩行是等於的寫法           
                 // $(selector).each(function (index, element) {
-                //     // element == this
+                //     element == this
 
                 // });
 
-                let forSum = 0;
-                for (let i = 1; i <= 10; i++) {
-                    forSum += i ;
-                }
+                // let forSum = 0;
+                // for (let i = 1; i <= 10; i++) {
+                //     forSum += i ;
+                // }
                 //forSum ? 55
 
             let sum = 0;
             let sumText = "";
             $.each(tbodyTr, function (key, value) {
+                console.log('--------');
+                console.log('key',key);
+                console.log('value',value);
+                console.log('this',this);
+                console.log('$(this)',$(this));
+                // if(value===this){console.log("Yes");}
+                // 由此可知value完全等於this但不等於$(this)
+
                 let getThis = $(this);
                 let getThisTd = getThis.find('td');
                 let getTotal = Number(getThis.find('.my-total').val());
