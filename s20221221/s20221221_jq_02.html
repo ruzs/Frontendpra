@@ -117,13 +117,34 @@
             // 1. 抓到每個total
             // 2. sum
 
+
+                //jquery each
+                // $.each(collection, function (indexInArray, valueOfElement) { 
+
+                // });
+
+                // $(selector).each(function (index, element) {
+                //     // element == this
+
+                // });
+
+                let forSum = 0;
+                for (let i = 1; i <= 10; i++) {
+                    forSum += i ;
+                }
+                //forSum ? 55
+
             let sum = 0;
             let sumText = "";
             $.each(tbodyTr, function (key, value) {
                 let getThis = $(this);
                 let getThisTd = getThis.find('td');
-                let getTotal = Number(getThisTd.find('.my-total').val());                    
+                let getTotal = Number(getThis.find('.my-total').val());
+                // let getTotal = Number(getThisTd.find('.my-total').val());
                 sum += getTotal;
+                // 1 + 2 + 3 + = 6
+                // if 長度-1 > key
+                // 1 + 2 + 3 = 6
                 if(tbodyTr.length-1 > key){
                     sumText += `${getTotal} + ` ;
                 }else{
@@ -166,6 +187,12 @@
         function changeFun() {
             console.log('changeFun ok');
             tbodyTr.each(function (key, value) {
+            // 'this'
+            // $('this')
+            // this 
+            // $(this)
+
+
                 let getThis = $(this);
                 let getThisTd = getThis.find('td');
                 // getThisTd.eq(0); 圖片
