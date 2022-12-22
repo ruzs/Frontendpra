@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Menu Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        /* th {
+            color: red;
+        } */
+    </style>
+</head>
+
+<body>
+
+
+    <div class="container mt-3">
+        <h2>Menu</h2>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nobis, expedita!</p>
+        <table class="table table-bordered text-center align-middle">
+            <!-- 小練習 th 文字 color red => 使用js -->
+            <thead>
+                <tr>
+                    <th>品名</th>
+                    <th>單價</th>
+                    <th>數量</th>
+                    <th>總價</th>
+                </tr>
+            </thead>
+            <tbody class="">
+                <tr>
+                    <td>
+                        <h3>花茶</h3>
+                        <img src="https://picsum.photos/id/1022/100/100">
+                    </td>
+                    <td>
+                        <input class="form-control my-price" type="number" name="item1Price" id="item1Price"
+                            value="100">
+                    </td>
+                    <td>
+                        <input class="form-control my-count" type="number" name="item1Count" id="item1Count" value="1">
+                    </td>
+                    <td>
+                        <input class="form-control my-total" type="number" name="item1Total" id="item1Total" value="0">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h3>咖啡</h3>
+                        <img src="https://picsum.photos/id/1024/100/100">
+                    </td>
+                    <td>
+                        <input class="form-control my-price" type="number" name="item2Price" id="item2Price" value="50">
+                    </td>
+                    <td>
+                        <input class="form-control my-count" type="number" name="item2Count" id="item2Count" value="1">
+                    </td>
+                    <td>
+                        <input class="form-control my-total" type="number" name="item2Total" id="item2Total" value="0">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h3>山泉水</h3>
+                        <img src="https://picsum.photos/id/1024/100/100">
+                    </td>
+                    <td>
+                        <input class="form-control my-price" type="number" name="item3Price" id="item3Price"
+                            value="200">
+                    </td>
+                    <td>
+                        <input class="form-control my-count" type="number" name="item3Count" id="item3Count" value="1">
+                    </td>
+                    <td>
+                        <input class="form-control my-total" type="number" name="item3Total" id="item3Total" value="0">
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>Result</td>
+                    <td colspan="2" class="align-middle">
+                        <span id="resultS">
+
+                        </span>
+                    </td>
+                    <td>
+                        <!-- <button type="button" class="btn btn-success" onclick="sum();">500/8折</button> -->
+                        <button id="resultBtn" type="button" class="btn btn-success">500/8折</button>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"
+        integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        $(function () {
+
+            // changeTr
+            // data 前面把this
+            function changeTr(data) {
+                console.log('changeTr ok');
+                console.log(data);
+                $(data).css('color', 'blue');
+                //getVal
+                //setVal
+                // td
+                const myParent = $(data).parent();
+                // tr
+                const myParentParent = $(data).parent().parent();
+                console.log('myParent', myParent);
+                console.log('myParentParent', myParentParent);
+
+                let getPrice = Number(myParentParent.find('.my-price').val());
+                let getCount = Number(myParentParent.find('.my-count').val());
+                myParentParent.find('.my-total').val(getPrice * getCount);
+
+                console.log('getPrice', getPrice);
+                console.log('getCount', getCount);
+            }
+
+            // btn 執行 sum
+            function sum() {
+
+                console.log('sum ok');
+
+                // 1. 抓到每個total
+                // 2. sum
+
+                //jquery each
+                // $.each(collection, function (indexInArray, valueOfElement) { 
+
+                // });
+
+                // $(selector).each(function (index, element) {
+                //     // element == this
+
+                // });
+
+                let forSum = 0;
+                for (let i = 1; i <= 10; i++) {
+                    forSum += i;
+                }
+                //forSum ? 55
+
+
+
+                let sum = 0;
+                let sumText = "";
+                $.each(tbodyTr, function (key, value) {
+                    // console.log('--------------');
+                    // console.log('key',key);
+                    // console.log('value',value);
+                    // console.log('this',this);
+                    // console.log('$(this)',$(this));
+                    // console.log('--------------');
+
+
+                    let getThis = $(this);
+                    let getThisTd = getThis.find('td');
+                    let getTotal = Number(getThis.find('.my-total').val());
+                    // let getTotal = Number(getThisTd.find('.my-total').val());                    
+                    sum += getTotal;
+                    // 1 + 2 + 3 + = 6
+                    // if 長度-1 > key
+                    // 1 + 2 + 3 = 6
+                    if (tbodyTr.length - 1 > key) {
+                        sumText += `${getTotal} + `;
+                    } else {
+                        sumText += `${getTotal} `;
+                    }
+                });
+                console.log('sum', sum);
+                console.log('sumText', sumText);
+                let str = "";
+                console.log('sum', sum);
+
+                if (sum > 500) {
+                    str = `
+                    ${sumText} =${sum}
+                ---八折優惠 ${sum * 0.8}----
+                `;
+                } else {
+                    str = `
+                    ${sumText} =${sum}
+                `;
+                }
+                resultS.text(str);
+            }
+
+            function changeFun() {
+                console.log('changeFun ok');
+                tbodyTr.each(function (key, value) {
+                    // 'this'
+                    // $('this')
+                    // this 
+                    // $(this)
+
+
+                    let getThis = $(this);
+                    let getThisTd = getThis.find('td');
+                    // getThisTd.eq(0); 圖片
+
+                    // eq
+                    // let getPrice = getThisTd.eq(1).find('input').val();
+                    // let getCount = getThisTd.eq(2).find('input').val();
+
+                    // class
+                    let getPrice = Number(getThisTd.find('.my-price').val());
+                    let getCount = Number(getThisTd.find('.my-count').val());
+                    getThisTd.find('.my-total').val(getPrice * getCount);
+
+                    console.log('getPrice', getPrice);
+                    console.log('getCount', getCount);
+                });
+
+            }
+
+            // 綁定
+
+            const resultS = $('#resultS');
+            const resultBtn = $('#resultBtn');
+
+            const myPrice = $('.my-price');
+            const myCount = $('.my-count');
+            const myTotal = $('.my-total');
+
+            // const tr = $('tr');
+            // console.log('tr', tr);
+            const tHeadTr = $('thead>tr');
+            const tHeadTrTh = tHeadTr.find('th');
+
+            const tbodyTr = $('tbody>tr');
+            const tbodyTrTd = tbodyTr.find('td');
+            console.log('tbodyTr', tbodyTr);
+
+            tHeadTr.css('color', 'yellow');
+            // find 往下一層找 find(selector)
+            //  chain . . . jquery_object.jq_method.jq_method
+            tHeadTrTh.eq(0).css('color', 'red');
+            tHeadTrTh.eq(1).css('color', 'green');
+            tHeadTrTh.eq(2).css('color', 'blue');
+
+            console.log('item3Price', item3Price);
+            console.log('resultS', resultS);
+            console.log('myPrice', myPrice);
+            console.log('myCount', myCount);
+            console.log('myTotal', myTotal);
+
+            resultBtn.click(function () {
+                sum();
+            });
+
+            myCount.change(function () {
+                myCount.css('color', '');
+                $(this).css('color', 'red');
+                // changeFun();
+                changeTr(this);
+            });
+
+            changeFun();//一開始執行一次
+
+
+
+        });
+
+    </script>
+
+
+</body>
+
+</html>
