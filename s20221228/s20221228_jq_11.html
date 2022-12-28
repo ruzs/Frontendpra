@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>timer</title>
+    <link rel="stylesheet" href="time.css">
+</head>
+
+<body>
+    <div class="digiImg">
+        <div id="ck1" class="mg1"></div>
+        <div id="ck2" class="mg2"></div>
+        <div class="mgd"></div>
+        <div id="ck3" class="mg3"></div>
+        <div id="ck4" class="mg4"></div>
+        <div class="mgd"></div>
+        <div id="ck5" class="mg5"></div>
+        <div id="ck6" class="mg6"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"
+        integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(function () {
+            function refresh() {
+                // 綁定時間
+                const nt = new Date();
+                // console.log('nt', nt);
+                const nh = nt.getHours(); // 15
+                const nm = nt.getMinutes(); // 45
+                const ns = nt.getSeconds(); // 50
+                // 1
+                // 5
+                // 4
+                // 5
+                // 5
+                // 0
+                const
+                    nk1 = Math.floor(nh / 10),
+                    nk2 = nh % 10,
+                    nk3 = Math.floor(nm / 10),
+                    nk4 = nm % 10,
+                    nk5 = Math.floor(ns / 10),
+                    nk6 = ns % 10;
+
+
+                // console.log('nh', nh);
+                // console.log('nm', nm);
+                // console.log('ns', ns);
+                $('#ck1').attr('class', `mg${nk1}`);
+                $('#ck2').attr('class', `mg${nk2}`);
+                $('#ck3').attr('class', `mg${nk3}`);
+                $('#ck4').attr('class', `mg${nk4}`);
+                $('#ck5').attr('class', `mg${nk5}`);
+                $('#ck6').attr('class', `mg${nk6}`);
+
+
+                $('.mgd').eq(0).css('opacity', 1);
+                $('.mgd').eq(1).css('opacity', 1);
+
+                // 1000 開 500 關 
+
+                // 閃爍 :
+                setTimeout(() => {
+                    $('.mgd').eq(0).css('opacity', 0);
+                    $('.mgd').eq(1).css('opacity', 0);
+                }, 500)
+
+            }
+
+
+
+
+
+            // 每一秒 會抓一次時間
+            setInterval(refresh, 1000);
+            // 進來程式先跑一次        
+            refresh();
+        });
+    </script>
+</body>
+
+</html>
