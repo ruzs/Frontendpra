@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        div {
+            margin: 0 auto;
+            margin-top: 100px;
+            border: 1px solid #ccc;
+            width: 30vh;
+            height: 50vh;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <form action="./getObject07.php" method="post" id="myForm">
+            <p>
+                <label for="num1">num1 ?</label>
+                <input type="text" name="num1" id="num1">
+            </p>
+            <p>
+                <label for="num2">num2 ?</label>
+                <input type="text" name="num2" id="num2">
+            </p>
+            <p>
+                <label for="option">option ?</label>
+                <input type="text" name="option" id="option">
+            </p>
+            <p>
+                <input type="submit" value="submit">
+            </p>
+
+            <p id="myP">
+
+            </p>
+
+        </form>
+    </div>
+    <script src="./js/myJS.js">
+    </script>
+    <script>
+        console.log('i', i);
+    </script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"
+        integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(function () {
+            const myForm = $('#myForm');
+            const myP = $('#myP');
+            // 
+            myForm.submit(function (event) {
+                console.log(event);
+                //preventDefault() //不要讓我的submit 送出
+                event.preventDefault();
+                // serialize() 序列化 num1=22&num2=222&option=2222
+                // serializeArray() 序列化 Array  [{…}, {…}, {…}]
+                console.log('this', this);
+                // var values = $(this).serialize();
+                var values = $(this).serializeArray();
+                console.log('values', values);
+                let myData = {
+                    's1': 'amy',
+                    's2': 'bob',
+                    's3': 'cat',
+                    'data': values
+                }
+
+                // ajax start
+                // $.ajax({
+                //     url: "./getObject.php",
+                //     type: "get",
+                //     data: myData,
+                //     dataType: 'json',
+                //     success: function (res) {
+                //         console.log('res', res);
+                //         myP.text(res.result);
+                //         // res.dic.location
+                //         // filter
+                //         // dic
+
+
+                //         // console.log('res.mobile',res.mobile);
+                //         // You will get response from your PHP page (what you echo or print)
+                //     },
+                //     // error: function (jqXHR, textStatus, errorThrown) {
+                //     //     console.log('jqXHR', jqXHR);
+                //     //     console.log('textStatus', textStatus);
+                //     //     console.log('errorThrown', errorThrown);
+                //     // }
+                // });
+                // ajax end
+
+                // get start
+                // $.get("./getObject.php", myData,
+                //     function (res, textStatus, jqXHR) {
+                //         console.log('res', res);
+                //     },
+                //     "json"
+                // );
+
+                // $.getJSON("./getObject.php", myData,
+                //     function (res, textStatus, jqXHR) {
+                //         console.log('res', res);
+                //     }
+                // );
+
+                $.post("./getObject07.php", myData,
+                    function (data, textStatus, jqXHR) {
+                        console.log('data', data);
+                    },
+                    "json"
+                );
+
+            
+
+
+                // $.ajax({
+                //     url: "./getObject.php",
+                //     type: "get",
+                //     data: myData,
+                //     dataType: 'json',
+                //     success: function (res) {
+                //         console.log('res', res);
+                //         // myP.text(res.result);
+
+                //         // console.log('res.mobile',res.mobile);
+                //         // You will get response from your PHP page (what you echo or print)
+                //     },
+                //     // error: function (jqXHR, textStatus, errorThrown) {
+                //     //     console.log('jqXHR', jqXHR);
+                //     //     console.log('textStatus', textStatus);
+                //     //     console.log('errorThrown', errorThrown);
+                //     // }
+                // });
+                // get end
+
+                // 練習
+                // html 
+                // input num1
+                // input num2
+                // ajax to php
+                // result = num1 + num2
+                // key array => data 
+                // num1
+                // num2
+                // result
+
+            });
+
+
+
+        });
+    </script>
+
+</body>
+
+</html>

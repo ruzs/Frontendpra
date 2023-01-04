@@ -21,19 +21,23 @@
 
 <body>
     <div>
-        <form action="./getData01.php" method="get" id="myForm">
+        <form action="./getData02.php" method="get" id="myForm">
             <p>
-                <label for="name">姓名 ?</label>
-                <input type="text" name="name" id="name">
+                <label for="num1">num1 ?</label>
+                <input type="text" name="num1" id="num1">
             </p>
             <p>
-                <label for="mobile">電話 ?</label>
-                <input type="text" name="mobile" id="mobile">
+                <label for="num2">num2 ?</label>
+                <input type="text" name="num2" id="num2">
             </p>
             <p>
                 <input type="submit" value="submit">
             </p>
-            <p></p>
+
+            <p id="myP">
+
+            </p>
+
         </form>
     </div>
 
@@ -43,9 +47,11 @@
     <script>
         $(function () {
             const myForm = $('#myForm');
+            const myP = $('#myP');
+            // 
             myForm.submit(function (event) {
                 console.log(event);
-                // preventDefault() 不要讓我的submit 送出
+                //preventDefault() //不要讓我的submit 送出
                 event.preventDefault();
                 // serialize() 序列化
                 console.log('this', this);
@@ -54,24 +60,35 @@
 
                 // ajax start
                 $.ajax({
-                    url: "./getData01.php",
+                    url: "./getData02.php",
                     type: "get",
                     data: values,
                     dataType: 'json',
                     success: function (res) {
                         console.log('res', res);
-                        console.log('res.name', res['name']);
-                        console.log('res.mobile', res.mobile);
-                        $("p").last().text(res.name);
-                        $("p").last().append("<br>"+res.mobile);
-
-                        // You will get res from your PHP page (what you echo or print)
+                        myP.text(res.result);
+                        
+                        // console.log('res.mobile',res.mobile);
+                        // You will get response from your PHP page (what you echo or print)
                     },
-                    error: function (jqXHR, textStatus, errorThrown) {
-                        console.log(textStatus, errorThrown);
-                    }
+                    // error: function (jqXHR, textStatus, errorThrown) {
+                    //     console.log('jqXHR', jqXHR);
+                    //     console.log('textStatus', textStatus);
+                    //     console.log('errorThrown', errorThrown);
+                    // }
                 });
-                // ajax stop
+                // ajax end
+
+                // 練習
+                // html 
+                // input num1
+                // input num2
+                // ajax to php
+                // result = num1 + num2
+                // key array => data 
+                // num1
+                // num2
+                // result
 
             });
 
