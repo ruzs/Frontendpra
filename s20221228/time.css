@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    background: #555;
+    background: rgb(0, 87, 180);
     height: 100vh;
     display: flex;
     flex-direction: column;

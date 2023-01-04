@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            margin: 0 auto;
+            margin-top: 100px;
+            border: 1px solid #ccc;
+            width: 30vh;
+            height: 50vh;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <form action="./getData01.php" method="get" id="myForm">
+            <p>
+                <label for="name">姓名 ?</label>
+                <input type="text" name="name" id="name">
+            </p>
+            <p>
+                <label for="mobile">電話 ?</label>
+                <input type="text" name="mobile" id="mobile">
+            </p>
+            <p>
+                <input type="submit" value="submit">
+            </p>
+            <p></p>
+        </form>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"
+        integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(function () {
+
+            const myForm = $('#myForm');
+            // 
+            myForm.submit(function (event) {
+                console.log(event);
+                // preventDefault() 不要讓我的submit 送出
+                event.preventDefault();
+                // serialize() 序列化
+                console.log('this', this);
+                var values = $(this).serialize();
+                console.log('values', values);
+
+                // ajax start
+                $.ajax({
+                    url: "./getData01.php",
+                    type: "get",
+                    data: values,
+                    dataType: 'json',
+                    success: function (res) {
+                        console.log('res', res);
+                        console.log('res.name', res['name']);
+                        console.log('res.mobile', res.mobile);
+                        $("p").last().text(res.name);
+                        $("p").last().append("<br>"+res.mobile);
+
+                        // You will get res from your PHP page (what you echo or print)
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.log(textStatus, errorThrown);
+                    }
+                });
+                // ajax stop
+
+            });
+
+
+
+        });
+    </script>
+
+</body>
+
+</html>
