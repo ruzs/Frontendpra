@@ -22,7 +22,14 @@
 <body>
     <div>
         <button type="button" id="myBtn">myBtn</button>
+        <br>
+        <select name="mySelect" id="mySelect">
+           
+            <!-- <option value="">123</option>
+            <option value="">123</option> -->
+        </select>
     </div>
+   
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"
         integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ=="
@@ -30,6 +37,7 @@
     <script>
         $(function () {
             const myBtn = $('#myBtn');
+            const mySelect = $('#mySelect');
             myBtn.click(function () {
                 // $.getJSON("./js/myJson.json",
                 //     function (data, textStatus, jqXHR) {
@@ -45,15 +53,21 @@
                     dataType: 'json',
                     success: function (res) {
                         console.log('res', res);
-                        console.log('res[0]',res[0].sna);
-                        console.log('res[1]',res[1].sna);
-                        $.each(res, function (key, value) { 
-                             console.log('key',key);
-                            //  console.log('value',value);
-                             console.log('value.sna',value.sna);
+                        console.log('res[0]', res[0].sna);
+                        console.log('res[1]', res[1].sna);
+                        $.each(res, function (key, value) {
+                            console.log('key', key);
+                            console.log('value',value);
+                            console.log('value.sna', value.sna);
+
+                            $dataText = `
+                            <option value="${key}">${key} ${value.sna}</option>
+                            `;
+                            mySelect.append($dataText);
+                            
                         });
-                    //   
-                       
+                        //   
+
                         // console.log('res.mobile',res.mobile);
                         // You will get response from your PHP page (what you echo or print)
                     },

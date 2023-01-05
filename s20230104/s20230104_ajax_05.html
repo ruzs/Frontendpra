@@ -75,9 +75,10 @@
                     url: "./getObject.php",
                     type: "get",
                     data: myData,
-                    dataType: 'json',
+                    // dataType: 'json',
                     success: function (res) {
                         console.log('res', res);
+                        console.log('data',res.myData);
                         myP.text(res.result);
 
                         // console.log('res.mobile',res.mobile);
