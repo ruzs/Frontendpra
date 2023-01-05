@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather</title>
+</head>
+
+<body>
+  <table id="table_id" class="display">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>locationName</th>
+        <th>startTime</th>
+        <th>endTime</th>
+        <th>parameterName</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"
+    integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
+  <script type="text/javascript" charset="utf8"
+    src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
+  <script>
+    // CWB-426CF436-48EC-48F1-AB77-A10809A02F03
+    $.ajax({
+      url: "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-426CF436-48EC-48F1-AB77-A10809A02F03",
+      // type:"get",
+      // dataType: 'json',
+      success: function (res) {
+        console.log('res', res);
+        console.log("res.records.location", res.records);
+        $.each(res.records.location, function (key, value) {
+          console.log("locationName", value.locationName);
+          let js_html = `
+            <tr>
+              <td>${key + 1}</td>
+              <td>${value.locationName}</td>
+              <td>${value.weatherElement[0].time[0].startTime}</td>
+              <td>${value.weatherElement[0].time[0].endTime}</td>
+              <td>${value.weatherElement[0].time[0].parameter.parameterName}</td>
+            </tr>`;
+          $("tbody").append(js_html);
+        })
+        $('#table_id').DataTable({
+          columns: [{
+            data: 'Id',
+            title: 'No.'
+          },{
+            data: 'locationName',
+            title: '區域'
+          },{
+            data: 'startTime',
+            title: '起始時間'
+          },{
+            data: 'endTime',
+            title: '結束時間'
+          },{
+            data: 'parameterName',
+            title: '情況'
+          },],
+          language: {
+            "lengthMenu": "顯示 _MENU_ 筆資料",
+            "sProcessing": "處理中...",
+            "sZeroRecords": "没有匹配结果",
+            "sInfo": "目前有 _MAX_ 筆資料",
+            "sInfoEmpty": "目前共有 0 筆紀錄",
+            "sInfoFiltered": " ",
+            "sInfoPostFix": "",
+            "sSearch": "搜尋:",
+            "sUrl": "",
+            "sEmptyTable": "尚未有資料紀錄存在",
+            "sLoadingRecords": "載入資料中...",
+            "sInfoThousands": ",",
+            "oPaginate": {
+              "sFirst": "首頁",
+              "sPrevious": "上一頁",
+              "sNext": "下一頁",
+              "sLast": "末頁"
+            },
+            "order": [
+              [0, "desc"]
+            ],
+            "oAria": {
+              "sSortAscending": ": 以升序排列此列",
+              "sSortDescending": ": 以降序排列此列"
+            }
+          }
+        });
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+      }
+    });
+  </script>
+</body>
+
+</html>
