@@ -50,8 +50,8 @@
           <th>Time3</th>
         `;
         $("thead>tr").append(js_title);
+        console.log("DataTable");
         $.each(res.records.location, function (key, value) {
-          console.log("locationName", value.locationName);
           let js_html = `
             <tr>
               <td>${key + 1}</td>
