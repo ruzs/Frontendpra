@@ -16,11 +16,22 @@
 <body>
   <div class="container mt-3 text-center">
     <h3 class="fw-bold text-primary">天氣預報</h3>
+    <hr>
     <button id="all" class="btn btn-dark m-2 mx-3 fw-bold" onclick="show(100)">全部</button>
     <button id="all" class="btn btn-primary m-2 fw-bold" onclick="show(25)">北部</button>
     <button id="all" class="btn btn-success m-2 fw-bold" onclick="show(50)">中部</button>
     <button id="all" class="btn btn-warning text-white m-2 fw-bold" onclick="show(75)">南部</button>
     <button id="all" class="btn btn-danger text-white m-2 fw-bold" onclick="show(125)">東部</button>
+    <hr>
+      <select name="" id="sel" class="btn btn-dark dropdown-toggle">
+        <option value="100"class="dropdown-item">All</option>
+        <option value="25"class="dropdown-item bg-primary">北部</option>
+        <option value="50"class="dropdown-item bg-success">中部</option>
+        <option value="75"class="dropdown-item bg-warning">南部</option>
+        <option value="125"class="dropdown-item bg-danger">東部</option>
+      </select>
+      <!-- <button class="btn btn-dark m-2 mx-3 fw-bold" onclick="show(parseInt($('#sel').val()))">Sub</button> -->
+    <hr>
     <table id="table_id" class="table table-striped">
       <thead>
         <tr>
@@ -45,7 +56,15 @@
   <script>
     // CWB-426CF436-48EC-48F1-AB77-A10809A02F03
     console.log("BootStrap");
+    $("select").change(()=>{
+      console.log($('#sel').val())
+      show(parseInt($('#sel').val()))
+    }
+      
+      );
     function show(local) {
+      // console.log("local type",typeof(local));
+      // console.log("local",local);
       $("thead>tr").html("");
       $("tbody").html("");
       $.ajax({
@@ -96,7 +115,7 @@
                 }
                 break;
               case 50:
-              if (
+                if (
                   value.locationName.includes("臺中") ||
                   value.locationName.includes("彰化") ||
                   value.locationName.includes("雲林") ||
@@ -107,19 +126,19 @@
                 }
                 break;
               case 75:
-              if (
+                if (
                   value.locationName.includes("臺南") ||
                   value.locationName.includes("高雄") ||
-                  value.locationName.includes("屏東") 
+                  value.locationName.includes("屏東")
                 ) {
                   $("tbody").append(js_html);
                 }
                 break;
-                case 125:
+              case 125:
                 if (
                   value.locationName.includes("宜蘭") ||
                   value.locationName.includes("花蓮") ||
-                  value.locationName.includes("臺東") 
+                  value.locationName.includes("臺東")
                 ) {
                   $("tbody").append(js_html);
                 }
@@ -131,37 +150,40 @@
           })
         },
         error: function (jqXHR, textStatus, errorThrown) {
+          console.log("jqXHR", jqXHR);
+          console.log("textStatus", textStatus);
+          console.log("errorThrown", errorThrown);
         }
       });
     }
     show(100);
     let time = 0;
-    setInterval(()=>{
-        time = time + 1;
-        if(time%3==0){
-          console.log(time);
-        }
-        switch (time) {
-          case 1:
-            $(".time1").removeClass("table-danger text-info").addClass("table-info text-primary");
-            $(".time2").removeClass("table-info text-danger").addClass("table-warning text-info");
-            $(".time3").removeClass("table-warning text-primary").addClass("table-danger text-danger");
-            break;
-          case 3:
-            $(".time1").removeClass("table-info text-primary").addClass("table-warning text-danger");
-            $(".time2").removeClass("table-warning text-info").addClass("table-danger text-primary");
-            $(".time3").removeClass("table-danger text-danger").addClass("table-info text-info");
-            break;
-          case 6:
-            $(".time1").removeClass("table-warning text-danger").addClass("table-danger text-info");
-            $(".time2").removeClass("table-danger text-primary").addClass("table-info text-danger");
-            $(".time3").removeClass("table-info text-info").addClass("table-warning text-primary");
-            break;
-          case 9:
-            time = 0;
-            break;
-        }
-      }, 1000);
+    setInterval(() => {
+      time = time + 1;
+      if (time % 3 == 0) {
+        console.log(time);
+      }
+      switch (time) {
+        case 1:
+          $(".time1").removeClass("table-danger text-info").addClass("table-info text-primary");
+          $(".time2").removeClass("table-info text-danger").addClass("table-warning text-info");
+          $(".time3").removeClass("table-warning text-primary").addClass("table-danger text-danger");
+          break;
+        case 3:
+          $(".time1").removeClass("table-info text-primary").addClass("table-warning text-danger");
+          $(".time2").removeClass("table-warning text-info").addClass("table-danger text-primary");
+          $(".time3").removeClass("table-danger text-danger").addClass("table-info text-info");
+          break;
+        case 6:
+          $(".time1").removeClass("table-warning text-danger").addClass("table-danger text-info");
+          $(".time2").removeClass("table-danger text-primary").addClass("table-info text-danger");
+          $(".time3").removeClass("table-info text-info").addClass("table-warning text-primary");
+          break;
+        case 9:
+          time = 0;
+          break;
+      }
+    }, 1000);
   </script>
 </body>
 
