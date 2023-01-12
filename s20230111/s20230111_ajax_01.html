@@ -6,10 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Weather</title>
+  <style>
+    *{
+      transition-duration: 0.5s;
+    }
+  </style>
 </head>
 
 <body>
   <div class="container mt-3">
+    <h3 class="text-center fw-bold text-primary">天氣預報</h3>
     <table id="table_id" class="table table-striped">
       <thead>
         <tr>
@@ -18,6 +24,7 @@
           <th>Time1</th>
           <th>Time2</th>
           <th>Time3</th> -->
+          
         </tr>
       </thead>
       <tbody>
@@ -46,7 +53,7 @@
         const timeText2 = `${time2.getFullYear()} / ${time2.getMonth() + 1} / ${time2.getDate()} / ${time2.getHours()}:00`;
         let js_title = `
           <th class="table-light">No.</th>
-          <th class="table-success">Location(區域)</th>
+          <th class="table-success">地點</th>
           <th class="table-info">${timeText0}</th>
           <th class="table-warning">${timeText1}</th>
           <th class="table-danger">${timeText2}</th>
@@ -56,11 +63,11 @@
         $.each(res.records.location, function (key, value) {
           let js_html = `
             <tr>
-              <td class="table-light">${key + 1}</td>
-              <td class="table-success">${value.locationName}</td>
-              <td class="table-info">${value.weatherElement[0].time[0].parameter.parameterName} ${value.weatherElement[2].time[0].parameter.parameterName}~${value.weatherElement[4].time[0].parameter.parameterName} &deg;${value.weatherElement[4].time[0].parameter.parameterUnit} | ${value.weatherElement[1].time[0].parameter.parameterName}% | ${value.weatherElement[3].time[0].parameter.parameterName}</td>
-              <td class="table-warning">${value.weatherElement[0].time[1].parameter.parameterName} ${value.weatherElement[2].time[1].parameter.parameterName}~${value.weatherElement[4].time[1].parameter.parameterName} &deg;${value.weatherElement[4].time[1].parameter.parameterUnit} | ${value.weatherElement[1].time[1].parameter.parameterName}% | ${value.weatherElement[3].time[1].parameter.parameterName}</td>
-              <td class="table-danger">${value.weatherElement[0].time[2].parameter.parameterName} ${value.weatherElement[2].time[2].parameter.parameterName}~${value.weatherElement[4].time[2].parameter.parameterName} &deg;${value.weatherElement[4].time[2].parameter.parameterUnit} | ${value.weatherElement[1].time[2].parameter.parameterName}% | ${value.weatherElement[3].time[2].parameter.parameterName}</td>
+              <td class="table-light text-black-50">${key + 1}</td>
+              <td class="table-success text-success">${value.locationName}</td>
+              <td class="table-info text-primary time time1">${value.weatherElement[0].time[0].parameter.parameterName} ${value.weatherElement[2].time[0].parameter.parameterName}~${value.weatherElement[4].time[0].parameter.parameterName} &deg;${value.weatherElement[4].time[0].parameter.parameterUnit} | ${value.weatherElement[1].time[0].parameter.parameterName}% | ${value.weatherElement[3].time[0].parameter.parameterName}<img src="./img/day/${value.weatherElement[0].time[0].parameter.parameterValue}.svg" alt="" width="40px"></td>
+              <td class="table-warning text-info time time2">${value.weatherElement[0].time[1].parameter.parameterName} ${value.weatherElement[2].time[1].parameter.parameterName}~${value.weatherElement[4].time[1].parameter.parameterName} &deg;${value.weatherElement[4].time[1].parameter.parameterUnit} | ${value.weatherElement[1].time[1].parameter.parameterName}% | ${value.weatherElement[3].time[1].parameter.parameterName}<img src="./img/day/${value.weatherElement[0].time[0].parameter.parameterValue}.svg" alt="" width="40px"></td>
+              <td class="table-danger text-danger time time3">${value.weatherElement[0].time[2].parameter.parameterName} ${value.weatherElement[2].time[2].parameter.parameterName}~${value.weatherElement[4].time[2].parameter.parameterName} &deg;${value.weatherElement[4].time[2].parameter.parameterUnit} | ${value.weatherElement[1].time[2].parameter.parameterName}% | ${value.weatherElement[3].time[2].parameter.parameterName}<img src="./img/day/${value.weatherElement[0].time[0].parameter.parameterValue}.svg" alt="" width="40px"></td>
             </tr>
           `;
           $("tbody").append(js_html);
@@ -69,6 +76,32 @@
       error: function (jqXHR, textStatus, errorThrown) {
       }
     });
+    let time=0;
+    setInterval(
+    function(){
+      console.log(time);
+      time=time+1;
+      switch(time){
+        case 1:
+          $(".time1").removeClass("text-info").addClass("text-primary");
+          $(".time2").removeClass("text-danger").addClass("text-info");
+          $(".time3").removeClass("text-primary").addClass("text-danger");
+          break;
+        case 3:
+          $(".time1").removeClass("text-primary").addClass("text-danger");
+          $(".time2").removeClass("text-info").addClass("text-primary");
+          $(".time3").removeClass("text-danger").addClass("text-info");
+          break;
+        case 6:
+          $(".time1").removeClass("text-danger").addClass("text-info");
+          $(".time2").removeClass("text-primary").addClass("text-danger");
+          $(".time3").removeClass("text-info").addClass("text-primary");
+          break;
+        case 9:
+          time=0;
+          break;
+      }
+    },1000);
   </script>
 </body>
 
