@@ -23,6 +23,7 @@
     <button id="all" class="btn btn-warning text-white m-2 fw-bold" onclick="show(75)">南部</button>
     <button id="all" class="btn btn-danger text-white m-2 fw-bold" onclick="show(125)">東部</button>
     <hr>
+    <h5>區域</h5>
       <select name="" id="sel" class="btn btn-dark dropdown-toggle">
         <option value="100"class="dropdown-item">All</option>
         <option value="25"class="dropdown-item bg-primary">北部</option>
@@ -31,6 +32,11 @@
         <option value="125"class="dropdown-item bg-danger">東部</option>
       </select>
       <!-- <button class="btn btn-dark m-2 mx-3 fw-bold" onclick="show(parseInt($('#sel').val()))">Sub</button> -->
+    <hr>
+    <h5>縣市</h5>
+    <select name="" id="sel" class="btn btn-dark dropdown-toggle">
+      <option value="100"class="dropdown-item">All</option>
+    </select>
     <hr>
     <table id="table_id" class="table table-striped">
       <thead>
@@ -56,12 +62,14 @@
   <script>
     // CWB-426CF436-48EC-48F1-AB77-A10809A02F03
     console.log("BootStrap");
-    $("select").change(()=>{
-      console.log($('#sel').val())
+    $("select").eq(0).change(()=>{
+      console.log($('selected').eq(0).val())
       show(parseInt($('#sel').val()))
-    }
-      
-      );
+    });
+    $("select").eq(1).change(()=>{
+      console.log($('selected').eq(1).val())
+      show(0);
+    });
     function show(local) {
       // console.log("local type",typeof(local));
       // console.log("local",local);
@@ -89,6 +97,8 @@
           `;
           $("thead>tr").append(js_title);
           $.each(res.records.location, function (key, value) {
+            let opt=`<option value="${value.locationName}" class="dropdown-item">${value.locationName}</option>`;
+            $("select").eq(1).append(opt);
             let js_html = `
                 <tr>
                   <td class="table-light text-black-50">${key + 1}</td>
@@ -97,7 +107,10 @@
                   <td class="table-warning text-info time time2">${value.weatherElement[2].time[1].parameter.parameterName}~${value.weatherElement[4].time[1].parameter.parameterName} &deg;${value.weatherElement[4].time[1].parameter.parameterUnit} | ${value.weatherElement[1].time[1].parameter.parameterName}% | <img src="./img/day/${value.weatherElement[0].time[1].parameter.parameterValue}.svg" title="${value.weatherElement[0].time[1].parameter.parameterName}" alt="" width="40px"> <span class="fw-bold">${value.weatherElement[3].time[1].parameter.parameterName}</span></td>
                   <td class="table-danger text-danger time time3">${value.weatherElement[2].time[2].parameter.parameterName}~${value.weatherElement[4].time[2].parameter.parameterName} &deg;${value.weatherElement[4].time[2].parameter.parameterUnit} | ${value.weatherElement[1].time[2].parameter.parameterName}% | <img src="./img/day/${value.weatherElement[0].time[2].parameter.parameterValue}.svg" title="${value.weatherElement[0].time[2].parameter.parameterName}" alt="" width="40px"> <span class="fw-bold">${value.weatherElement[3].time[2].parameter.parameterName}</span></td>
                 </tr>
-              `;
+            `;
+            if (value.locationName == $("select").eq(1).val()) {
+              $("tbody").append(js_html);
+            }
             switch (local) {
               case 100:
                 $("tbody").append(js_html);
