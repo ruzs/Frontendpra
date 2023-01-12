@@ -48,6 +48,7 @@
           <th class="table-danger">最後更新時間</th>
         `;
         $("thead>tr").append(js_title);
+        // var i=0;
         $.each(res, function (key, value) {
           let js_html = `
             <tr>
@@ -56,11 +57,18 @@
               <td class="table-info">${value.負責人}</td>
               <td class="table-warning">${value.連絡電話}</td>
               <td class="table-primary">${value.地址}</td>
-              <td class="table-danger">${value.最後更新時間}</td>
+              <td class="table-danger">${value.最後更新時間.substr(0,4)}.${value.最後更新時間.substr(4,2)}.${value.最後更新時間.substr(6,2)}</td>
             </tr>
           `;
           $("tbody").append(js_html);
+          // console.log(value.地址);
+          // console.log(value.地址.indexOf("縣"));
+          // if (value.地址.includes("草")) {
+          //   i=i+1;
+          // }
+          // console.log(value.地址.includes("縣"));
         })
+        // console.log(i);
       },
       error: function (jqXHR, textStatus, errorThrown) {
       }
