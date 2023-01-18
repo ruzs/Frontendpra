@@ -8,7 +8,11 @@ curl_setopt($ch , CURLOPT_URL , "https://opendata.hccg.gov.tw/API/v3/Rest/OpenDa
 // curl_setopt($ch, CURLOPT_USERAGENT, "Google Bot");
 //執行，並將結果存回
 
+// curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
 $result = curl_exec($ch);
 // var_dump($result);
 //關閉連線
 curl_close($ch);
+
+// var_dump(json_decode($result, true));
