@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>datatable</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
+</head>
+
+<body>
+    <table id="example" class="display" style="width:100%">
+        <thead>
+            <!-- thead tbody tfoot 三個 th / td 要相等 -->
+            <!-- 抓出三段時間 放在table 時間一 時間二 時間三 -->
+
+            <!-- 0 night -->
+            <!-- 6 day -->
+            <!-- 12 day -->
+            <!-- 18 night -->
+
+            <tr>
+                <th>no.</th>
+                <th>縣市</th>
+                <th>時間一</th>
+                <th>時間二</th>
+                <th>時間三</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr> -->
+        </tbody>
+    </table>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"
+        integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script type="text/javascript" charset="utf8"
+        src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
+    <script>
+        $(function () {
+
+            // CWB-C0ECFB19-DA53-46EF-BC76-146F83535780
+
+            // const myBtn = $('#myBtn');
+            const tbody = $('tbody');
+
+            // ajax
+            $.ajax({
+                url: "https://opendata.hccg.gov.tw/API/v3/Rest/OpenData/004E0547C834932D?take=10&skip=0",
+                type: "get",
+                dataType: 'json',
+                success: function (res) {
+                    // console.log('res', res);
+                    // console.log('res.records', res.records);
+                    // console.log('res.records.location', res.records.location);
+                    let data = res;
+                    console.log('data', data);
+                    
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    // console.log('jqXHR', jqXHR);
+                    // console.log('textStatus', textStatus);
+                    // console.log('errorThrown', errorThrown);
+                }
+            });
+            // ajax end
+        });
+
+    </script>
+</body>
+
+</html>
