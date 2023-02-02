@@ -33,6 +33,11 @@
       font-weight: bold;
       color: green;
     }
+    h5{
+      display: none;
+      font-weight: bold;
+      color: greenyellow;
+    }
     .block1{
       padding: 20px;
     }
@@ -49,10 +54,10 @@
     .over{
       display: none;
     }
-    .block1 :nth-child(4) {
+    .block1 :nth-child(5) {
       color: red;
     }
-    .block1 :nth-child(6) {
+    .block1 :nth-child(7) {
       color: blue;
     }
   </style>
@@ -63,6 +68,7 @@
     <h6>最終分數</h6>
     <h1></h1>
     <h4>歷史最高分數 <span></span></h4>
+    <h5>三分球時間</h5>
     <p>point</p>
     <hr>
     <p>Ready?</p>
@@ -84,21 +90,25 @@
     var pointH=0;
     function timego() {
       let timer = setInterval(() => {
-      if (time==60) {
-        $(".shoot").hide();
-        $(".over").show();
-        // $(".shoot").css("display","none");
-        // $(".over").css("display","inline-block");
-        if(point>pointH){
-          pointH=point;
-          $("span").text(pointH);
+        if (time>40) {
+          $("h5").show()
         }
-        $("h1").text(point);
-        clearInterval(timer);
-      }else{
-        time = time + 1;
-        $("p").eq(1).text(60-time);
-      }
+        if (time==60) {
+          $(".shoot").hide();
+          $(".over").show();
+          // $(".shoot").css("display","none");
+          // $(".over").css("display","inline-block");
+          $("h5").hide()
+          if(point>pointH){
+            pointH=point;
+            $("span").text(pointH);
+          }
+          $("h1").text(point);
+          clearInterval(timer);
+        }else{
+          time = time + 1;
+          $("p").eq(1).text(60-time);
+        }
       }, 100);
       
     }
@@ -121,6 +131,7 @@
     })
     $(".res").click(()=>{
       if (time>=60) {
+        $("h5").hide()
         $('.start').hide();
         $(".shoot").show();
         // $('.start').css("display","none");

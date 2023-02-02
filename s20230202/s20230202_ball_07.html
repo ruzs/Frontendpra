@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ball</title>
+
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        p {
+            color: red;
+            font-size: larger;
+        }
+
+        div {
+            width: 500px;
+            border: 1px black solid;
+            text-align: center;
+            padding: 30px;
+            margin: 50px auto;
+        }
+
+        h1,
+        h2 {
+            margin: 10px auto;
+            text-align: center;
+        }
+
+        h2 {
+            color: green;
+        }
+
+        #myTime {
+            color: blue;
+        }
+
+        button {
+            width: 200px;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>投籃大賽</h1>
+    <div>
+        <h3>分數</h3>
+        <h2>歷史最高分數 <span id="mySpan">55688</span></h2>
+        <p id="myP">0</p>
+        <hr>
+        <p id="myTime">0</p>
+    </div>
+    <div>
+        <button type="button" id="startBtn">開始</button>
+        <button type="button" id="myBtn">進球</button>
+        <button type="button" id="resetBtn">重置</button>
+    </div>
+
+    <!-- jquery  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+        integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        // 1.html
+        // 2.css
+        // 3.+分 js
+        // 4.timer
+        // 5.reset
+        // 
+
+
+
+        let sum = 0;
+        let time = 10;
+        let isGame = false;
+        let timer;
+        let score = 2;
+        let goldTime = 5;
+        let nowHighScore = 0; //本局的分數
+
+        // localStorage.setItem('theHighScore',theHighScore);
+        let theHighScore = localStorage.getItem('theHighScore');
+        // let theHighScore = 0; //歷史最高分數
+        const startBtn = $('#startBtn');
+        const myBtn = $('#myBtn');
+        const resetBtn = $('#resetBtn');
+        const myP = $('#myP');
+        const myTime = $('#myTime');
+        const mySpan = $('#mySpan');
+        myBtn.hide();
+        console.log('theHighScore', theHighScore);
+        if (theHighScore == null) {
+            mySpan.text(0);
+        }else{
+            mySpan.text(theHighScore);
+        }
+        // 1. 當我進球時 +2 分
+        // 2. 畫面分數 累加上去
+        // 3. 倒數計時 startBtn
+
+
+
+        myBtn.click(function () {
+            // console.log('btn ok');
+
+            // time > 21  => 2分
+            // time < 21  => 3分
+            if (isGame == true) {
+                sum = sum + score;
+                myP.text(sum);
+            }
+
+
+        });
+
+        resetBtn.click(() => {
+            myBtn.text('進球');
+            myBtn.hide();
+            startBtn.show();
+            myP.text(0);
+        });
+
+        startBtn.click(function () {
+            timeGo();
+            $(this).hide();
+            myBtn.show();
+        });
+
+        function timeGo() {
+            isGame = true;
+            let i = time;
+            console.log('timeGo ok');
+            timer = setInterval(function () {
+                console.log();
+                console.log(i);
+                myTime.text(i);
+                i--;
+                nowTime = i;
+
+                if (i < goldTime) {
+                    score = 3;
+                } else {
+                    score = 2;
+                }
+
+                if (i < 0) {
+                    clearInterval(timer);
+                    isGame = false;
+                    // myBtn.hide();
+                    // startBtn.show();
+                    myBtn.text('遊戲結束');
+                    nowHighScore = sum;
+                    // 本局分數 > 歷史最高
+                    if (nowHighScore > theHighScore) {
+                        theHighScore = nowHighScore;
+                        localStorage.setItem('theHighScore', theHighScore);
+                    }
+                    sum = 0;
+                    mySpan.text(theHighScore);
+                }
+            }, 1000);
+        }
+
+
+    </script>
+</body>
+
+</html>
