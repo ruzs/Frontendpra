@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=`, initial-scale=1.0">
+    <title>chart js</title>
+    <style>
+        div{
+            width: 80%;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>bar</h2>
+    <div>
+        <canvas id="myChart"></canvas>
+    </div>
+    <hr>
+    <h2>line</h2>
+    <div>
+        <canvas id="myChart2"></canvas>
+    </div>
+    <hr>
+    <h2>bubble</h2>
+    <div>
+        <canvas id="myChart3"></canvas>
+    </div>
+    <hr>
+    <h2>doughnut</h2>
+    <div>
+        <canvas id="myChart4"></canvas>
+    </div>
+    <hr>
+    <h2>polarArea</h2>
+    <div>
+        <canvas id="myChart5"></canvas>
+    </div>
+    <hr>
+    <h2>radar</h2>
+    <div>
+        <canvas id="myChart6"></canvas>
+    </div>
+    <hr>
+    <h2>mixed</h2>
+    <div>
+        <canvas id="myChart7"></canvas>
+    </div>
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+        integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.0/dist/chart.umd.min.js"></script>
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.0/chart.min.js"
+        integrity="sha512-qKyIokLnyh6oSnWsc5h21uwMAQtljqMZZT17CIMXuCQNIfFSFF4tJdMOaJHL9fQdJUANid6OB6DRR0zdHrbWAw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+
+
+    <script>
+        const ctx = document.getElementById('myChart');
+        const ctx2 = document.getElementById('myChart2');
+        const ctx3 = document.getElementById('myChart3');
+        const ctx4 = document.getElementById('myChart4');
+        const ctx5 = document.getElementById('myChart5');
+        const ctx6 = document.getElementById('myChart6');
+        const ctx7 = document.getElementById('myChart7');
+        // const ctxOrigin = document.getElementById('myChart');
+        // console.log('ctxOrigin', ctxOrigin);
+        // const ctx = $('#myChart');
+        // console.log('ctx', ctx);
+
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['1月', '2月', '3月', '4月', '5月', '6月'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(255,0,255,0.4)',
+                        'rgba(255,0,0,.4)',
+                        'rgba(0,255,255,.4)'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        new Chart(ctx2, {
+            type: 'line',
+            data: {
+                labels: ['1月', '2月', '3月', '4月', '5月', '6月'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.8)',
+                        'rgba(54, 162, 235, 0.8)',
+                        'rgba(255, 206, 86, 0.8)',
+                        'rgba(255,0,255,0.8)',
+                        'rgba(255,0,0,.8)',
+                        'rgba(0,255,255,.8)'
+                    ],
+                    borderWidth: 1,
+                    borderColor:
+                    // [
+                        // 'rgba(255, 99, 132, 0.8)',
+                        // 'rgba(54, 162, 235, 0.8)',
+                        // 'rgba(255, 206, 86, 0.8)',
+                        // 'rgba(255,0,255,0.8)',
+                        'rgba(255,0,0,.8)'
+                        // 'rgba(0,255,255,.8)'
+                    // ]
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+        new Chart(ctx3, {
+            type: 'bubble',
+            data: {
+                // labels: ['1月', '2月', '3月', '4月', '5月', '6月'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [{x:12,y:15,r:10},{x:19,y:15,r:10},{x:3,y:15,r:10},{x:5,y:15,r:10},{x:2,y:15,r:10},{x:3,y:15,r:10}],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.8)',
+                        'rgba(54, 162, 235, 0.8)',
+                        'rgba(255, 206, 86, 0.8)',
+                        'rgba(255,0,255,0.8)',
+                        'rgba(255,0,0,0.8)',
+                        'rgba(0,255,255,0.8)'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+        new Chart(ctx4, {
+            type: 'doughnut',
+            data: {
+                labels: ['1月', '2月', '3月', '4月', '5月', '6月'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 5, 2, 3],
+                    hoverOffset: 4
+                }]
+            },
+        });
+        new Chart(ctx5, {
+            type: 'polarArea',
+            data: {
+                labels: ['1月', '2月', '3月', '4月', '5月', '6月'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 5, 2, 3],
+                    
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+        new Chart(ctx6, {
+            type: 'radar',
+            data: {
+                labels: ['1月', '2月', '3月', '4月', '5月', '6月'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    pointBackgroundColor: 'rgb(255, 99, 132)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgb(255, 99, 132)',
+                    borderWidth: 1
+                },{
+                    label: 'My Second Dataset',
+                    data: [3, 12,8, 19, 10, 9],
+                    fill: true,
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgb(54, 162, 235)',
+                    pointBackgroundColor: 'rgb(54, 162, 235)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgb(54, 162, 235)'
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        const mixedChart = new Chart(ctx7, {
+    data: {
+        datasets: [{
+            type: 'bar',
+            label: 'Bar Dataset',
+            data: [10, 20, 30, 40]
+        }, {
+            type: 'line',
+            label: 'Line Dataset',
+            data: [20, 40, 10, 60],
+        }],
+        labels: ['January', 'February', 'March', 'April']
+    },
+    options: {
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  }
+});
+const defaultLegendClickHandler = Chart.defaults.plugins.legend.onClick;
+const pieDoughnutLegendClickHandler = Chart.controllers.doughnut.overrides.plugins.legend.onClick;
+const newLegendClickHandler = function (e, legendItem, legend) {
+    const index = legendItem.datasetIndex;
+    const type = legend.chart.config.type;
+
+    if (index > 1) {
+        // Do the original logic
+        if (type === 'pie' || type === 'doughnut') {
+            pieDoughnutLegendClickHandler(e, legendItem, legend)
+        } else {
+            defaultLegendClickHandler(e, legendItem, legend);
+        }
+
+    } else {
+        let ci = legend.chart;
+        [
+            ci.getDatasetMeta(0),
+            ci.getDatasetMeta(1)
+        ].forEach(function(meta) {
+            meta.hidden = meta.hidden === null ? !ci.data.datasets[index].hidden : null;
+        });
+        ci.update();
+    }
+};
+
+const chart = new Chart(ctx, {
+    type: 'line',
+    data: data,
+    options: {
+        plugins: {
+            legend: {
+                onClick: newLegendClickHandler
+            }
+        }
+    }
+});
+        
+    </script>
+</body>
+
+</html>
