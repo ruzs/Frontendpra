@@ -25,10 +25,10 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
 $result = curl_exec($ch);
 // var_dump($result);
-// echo $result;
-dd($result);
+echo $result;
+// dd($result);
 $json_decode = json_decode($result);
-dd($json_decode);
+// dd($json_decode);
 
 //關閉連線
 curl_close($ch);
